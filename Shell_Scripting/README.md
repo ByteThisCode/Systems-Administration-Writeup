@@ -6,6 +6,7 @@
 1. [Login e interprete dei comandi](#login-e-interprete-dei-comandi)
 2. [Sudo](#sudo)
 3. [Shutdown](#shutdown)
+4. [Alias](#alias)
 
 
 
@@ -30,9 +31,14 @@ Configurare sudo:
 
 
 ## Shutdown
-```
-shutdown [-h|-r] now` 
+
+`shutdown [-h|-r] now` 
 * -h arresto  
 * -r riavvio  
 * -now quando eseguire l'azione
-```
+
+## Alias
+
+Utile per memorizzare linee di comando complesse in comandi più semplici da invocare.
+
+`alias nomealias='comando'`
