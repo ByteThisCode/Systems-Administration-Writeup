@@ -1,4 +1,4 @@
-# Shell Scripting
+# Introfuzione linea di comando
 
 ---------------
 ## Table of Contents
@@ -8,6 +8,7 @@
 2. [Sudo](#sudo)
 3. [Shutdown](#shutdown)
 4. [Alias](#alias)
+5. [VIM](#vim)
 
 ## Comandi utili
 
@@ -48,3 +49,6 @@ Configurare sudo:
 Utile per memorizzare linee di comando complesse in comandi più semplici da invocare.
 
 `alias nomealias='comando'`
+
+## VIM
+
