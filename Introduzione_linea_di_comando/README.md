@@ -10,21 +10,21 @@
 4. [Alias](#alias)
 5. [VIM](#vim)
 ---------------
-## > Comandi utili
+## - Comandi utili
 
 - `history` - Per visualizzare l'elenco dei comandi eseguiti in un terminale
   - CTRL-R attiva la reverse-i-search con la quale ricercare un comando
 - `script` - Cattura in un file una sessione di lavoro del terminale
   - Per uscire digitare `exit` o `CTRL-D`
 
-## > Info
+## - Info
 
   * `whoami` - Indica il proprio username
   * `id` - Informazioni sull'indentità e sul gruppo di appartenenza
   * `who` - Indica chi è attualmente collegato alla macchina
 
 
-## > Sudo
+## - Sudo
 
 Configurare sudo:
  * Diventare root tramite `su -`
@@ -37,18 +37,18 @@ Configurare sudo:
 `sudo -i` - Apre sessione terminale
 
 
-## > Shutdown
+## - Shutdown
 
 `shutdown [-h|-r] now` 
 * -h arresto  
 * -r riavvio  
 * -now quando eseguire l'azione
 
-## > Alias
+## - Alias
 
 Utile per memorizzare linee di comando complesse in comandi più semplici da invocare.
 
 `alias nomealias='comando'`
 
-## VIM
+## - VIM
 
