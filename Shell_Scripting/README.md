@@ -10,6 +10,7 @@
 
 #Login e interprete dei comandi
 ====================
-dsad
 
-====================
+	`whoami` Indica il proprio username
+  `id` Informazioni sull'indentità e sul gruppo di appartenenza
+  `who` indica chi è attualmente collegato alla macchina
