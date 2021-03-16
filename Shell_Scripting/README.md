@@ -20,4 +20,9 @@
 Configurare sudo:
  * Diventare root tramite `su -`
  * Lanciare il comando `visudo`
- * Aggiungere la linea
+ * Aggiungere la linea `utente <tab> ALL=(ALL:ALL) <space> ALL`
+ * Usare `adduser utente sudo`
+ * Per aggiornare le modifiche effettuare un logout e rientrare
+
+* `su - root`
+* `sudo -i` apre sessione terminale
