@@ -3,12 +3,16 @@
 ---------------
 ## Table of Contents
 
+0. [Comandi utili](#comandi-utili)
 1. [Login e interprete dei comandi](#login-e-interprete-dei-comandi)
 2. [Sudo](#sudo)
 3. [Shutdown](#shutdown)
 4. [Alias](#alias)
 
+## Comandi utili
 
+* `history` per visualizzare l'elenco dei comandi eseguiti in un terminale
+ - CTRL-R attiva la reverse-i-search con la quale ricercare un comando
 
 ## Login e interprete dei comandi
 
