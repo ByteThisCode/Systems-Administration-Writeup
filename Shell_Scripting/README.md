@@ -27,4 +27,4 @@ Bash può disconnettere gli stream predefiniti dal terminale e far trovare gli s
   * `ls > filename 2>&1` - Ridirige lo stderr dentro stdout e poi stdout su file (L'ordine è importante!)
 
 * Ridirezione stdin: `<`
-  * `sort < filename` - Riversa il contenuto di del file su stdin di sort
+  * `sort < filename` - Riversa il contenuto del file su stdin di sort
