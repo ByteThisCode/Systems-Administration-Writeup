@@ -1,7 +1,7 @@
 # Shell Scripting
 
 ---------------
-# Table of Contents
+## Table of Contents
 
 1. [Login e interprete dei comandi](#login-e-interprete-dei-comandi)
 2. [Sudo](#sudo)
@@ -9,7 +9,7 @@
 
 ---------------
 
-Login e interprete dei comandi
+## Login e interprete dei comandi
 ====================
 
   * `whoami` Indica il proprio username
@@ -18,5 +18,10 @@ Login e interprete dei comandi
 
 ---------------
 
-Sudo
+## Sudo
 ====================
+
+Configurare sudo:
+ * Diventare root tramite `su -`
+ * Lanciare il comando `visudo`
+ * Aggiungere la linea
