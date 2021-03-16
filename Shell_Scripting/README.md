@@ -13,6 +13,8 @@
 
 - `history` per visualizzare l'elenco dei comandi eseguiti in un terminale
   - CTRL-R attiva la reverse-i-search con la quale ricercare un comando
+- `script` cattura in un file una sessione di lavoro del terminale
+  - Per uscire digitare `exit` o `CTRL-D`
 
 ## Login e interprete dei comandi
 
