@@ -9,7 +9,6 @@
 
 
 ## Login e interprete dei comandi
-====================
 
   * `whoami` Indica il proprio username
   * `id` Informazioni sull'indentità e sul gruppo di appartenenza
@@ -17,7 +16,6 @@
 
 
 ## Sudo
-====================
 
 Configurare sudo:
  * Diventare root tramite `su -`
