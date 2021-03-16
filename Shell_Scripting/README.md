@@ -9,7 +9,7 @@
 
 ---------------
 
-#Login e interprete dei comandi
+Login e interprete dei comandi
 ====================
 
   * `whoami` Indica il proprio username
@@ -18,5 +18,5 @@
 
 ---------------
 
-#Sudo
+Sudo
 ====================
