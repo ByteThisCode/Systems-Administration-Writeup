@@ -30,8 +30,9 @@ Configurare sudo:
 
 
 ## Shutdown
-
-`shutdown [-h|-r] now`  
+```
+shutdown [-h|-r] now` 
 * -h arresto  
 * -r riavvio  
 * -now quando eseguire l'azione
+```
