@@ -9,7 +9,7 @@
 3. [Shutdown](#shutdown)
 4. [Alias](#alias)
 5. [VIM](#vim)
-
+---------------
 ## Comandi utili
 
 - `history` per visualizzare l'elenco dei comandi eseguiti in un terminale
