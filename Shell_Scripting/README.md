@@ -12,7 +12,7 @@
 ## Comandi utili
 
 - `history` per visualizzare l'elenco dei comandi eseguiti in un terminale
- - CTRL-R attiva la reverse-i-search con la quale ricercare un comando
+  - CTRL-R attiva la reverse-i-search con la quale ricercare un comando
 
 ## Login e interprete dei comandi
 
