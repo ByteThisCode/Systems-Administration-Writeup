@@ -1,7 +1,7 @@
 # Shell Scripting
 
 ---------------
-## Table of Contents
+## Contenuti
 
 0. [Comandi utili](#comandi-utili)
 1. [Ridirezione](#ridirezioni)
