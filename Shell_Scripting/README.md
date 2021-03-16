@@ -9,6 +9,7 @@
 ---------------
 ## Comandi utili
 
+* `2>/dev/null` - scarta gli errori 
 
 
 ## Ridirezione
