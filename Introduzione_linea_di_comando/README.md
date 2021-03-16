@@ -12,16 +12,16 @@
 ---------------
 ## Comandi utili
 
-- `history` per visualizzare l'elenco dei comandi eseguiti in un terminale
+- `history` - per visualizzare l'elenco dei comandi eseguiti in un terminale
   - CTRL-R attiva la reverse-i-search con la quale ricercare un comando
-- `script` cattura in un file una sessione di lavoro del terminale
+- `script` - cattura in un file una sessione di lavoro del terminale
   - Per uscire digitare `exit` o `CTRL-D`
 
 ## Login e interprete dei comandi
 
-  * `whoami` Indica il proprio username
-  * `id` Informazioni sull'indentità e sul gruppo di appartenenza
-  * `who` indica chi è attualmente collegato alla macchina
+  * `whoami` - Indica il proprio username
+  * `id` - Informazioni sull'indentità e sul gruppo di appartenenza
+  * `who` - indica chi è attualmente collegato alla macchina
 
 
 ## Sudo
@@ -34,7 +34,7 @@ Configurare sudo:
  * Per aggiornare le modifiche effettuare un logout e rientrare
 
 `su - root`  
-`sudo -i` apre sessione terminale
+`sudo -i` - apre sessione terminale
 
 
 ## Shutdown
