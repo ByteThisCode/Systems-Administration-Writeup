@@ -5,6 +5,7 @@
 
 1. [Login e interprete dei comandi](#login-e-interprete-dei-comandi)
 2. [Sudo](#sudo)
+3. [Shutdown](#shutdown)
 
 
 
@@ -26,3 +27,11 @@ Configurare sudo:
 
 `su - root`  
 `sudo -i` apre sessione terminale
+
+
+## Shutdown
+
+`shutdown [-h|-r] now`  
+* -h arresto  
+* -r riavvio  
+* -now quando eseguire l'azione
