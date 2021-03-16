@@ -7,7 +7,6 @@
 2. [Sudo](#sudo)
 
 
----------------
 
 ## Login e interprete dei comandi
 ====================
@@ -16,7 +15,6 @@
   * `id` Informazioni sull'indentità e sul gruppo di appartenenza
   * `who` indica chi è attualmente collegato alla macchina
 
----------------
 
 ## Sudo
 ====================
