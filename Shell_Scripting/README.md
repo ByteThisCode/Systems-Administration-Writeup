@@ -24,5 +24,5 @@ Configurare sudo:
  * Usare `adduser utente sudo`
  * Per aggiornare le modifiche effettuare un logout e rientrare
 
-`su - root`
+`su - root`  
 `sudo -i` apre sessione terminale
