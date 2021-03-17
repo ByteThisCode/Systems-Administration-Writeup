@@ -7,6 +7,7 @@
 
 0. [Useful Commands](#--useful-commands)
 1. [Redirection](#--redirection)
+2. [Filters](#filters)
 
 ---------------
 ## - Useful Commands
@@ -52,3 +53,6 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     MARKER
     ```
   * For a single line the marker is not needed: `comand <<< "Single text line..."`
+
+
+## - Fitlers
