@@ -30,7 +30,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 * **stdin** redirection: `<`
   * `sort < filename` - Dump the contents of the file to sort's stdin
 
-
+  
 **- Special Redirection**
 
 * **Definitive redirection**: `exec`  
