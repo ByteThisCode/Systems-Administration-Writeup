@@ -8,7 +8,7 @@
 0. [Useful Commands](#--useful-commands)
 1. [Redirection](#--redirection)
 2. [Filters](#filters)
-  * [cat](#>cat)
+    * [cat](#cat)
 
 ---------------
 ## - Useful Commands
