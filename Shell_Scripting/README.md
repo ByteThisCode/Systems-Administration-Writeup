@@ -115,4 +115,11 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     cut -c8-30 - Returns the characters from the 8th to the 30th
     cut -c-30 - Returns characters up to the 30th
     cut -c8- - Returns the characters from the 8th onwards
+    ```
+  * Other options:
+    * -d - Allows you to define a delimiter
+    * -f - Allows you to select a field
+    * `cut -dDELIMITER -fNUM`
+    * Ex:  `cat /etc/passwd | cut -d: -f1 -s`
+      * -s - It prevents lines that do not contain the delimiter from being output   
  
