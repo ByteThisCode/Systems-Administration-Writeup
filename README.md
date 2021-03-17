@@ -10,8 +10,8 @@
   -Alias  
   -VIM
 1. [Shell Scripting](./Shell_Scripting)
-  -Redirection
-  -Filters
-  -Regex
+  -Redirection  
+  -Filters  
+  -Regex  
 
 ---------------
