@@ -13,6 +13,7 @@
     * [rev](#--rev)
     * [head/tail](#--headtail)
     * [cut](#--cut)
+    * [sort](#--sort)
 
 ---------------
 ## - Useful Commands
@@ -123,3 +124,6 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     * Ex:  `cat /etc/passwd | cut -d: -f1 -s`
       * -s - It prevents lines that do not contain the delimiter from being output   
  
+
+### - sort
+  * Allows you to sort the lines of a stream
