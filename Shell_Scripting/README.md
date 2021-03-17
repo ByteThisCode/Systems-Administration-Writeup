@@ -211,5 +211,20 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     * `tr -d '\r'` - Eliminates any occurrence of the carriage return
 
 ### - sed
-  * Stream EDitor, base format: `sed -e 'command'` or `sed -f 'script'`
+  * Stream EDitor, base format: `sed -e 'command'` or `sed -f 'script'`  
+  * Substitution command: `sed 's/OLD_PATTERN/NEW_VALUE/[modifiers]'`  
+    * Ex: `cat /etc/passwd | sed 's/^/Line:/'` - Insert string 'line:' at the beginning of each line of passwd
+    * With -E the patterns are about those of egrep  
+  * Substitution command modifier:
+      ``` 
+      i - Case sensitive
+      g - Global, replaces all occurrences in the line
+      NUM - Replaces only the NUMth occurrence 
+      ```
+  * Command line options:
+      ```
+      -i [suffix] - Edits the given file [backup with SUFFIX extension if provided]
+      -u - Unbuffered
+      ```
+    
     
