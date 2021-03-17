@@ -44,9 +44,9 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     -To close: `exec 3>&- 4>&- 5>&-`
 
 * **Here documents**: `comands <<MARKUP`
-  * Ex:  ```
-    Lorem ipsum dolor sit amet  <br />
-    consectetur adipiscing elit  <br />
-    Curabitur at massa blandit  <br />
-    faucibus leo ac  <br />
-    venenatis odio.```
+   ```Lorem ipsum dolor sit amet  
+    consectetur adipiscing elit  
+    Curabitur at massa blandit  
+    faucibus leo ac  
+    venenatis odio.
+    ```
