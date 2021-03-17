@@ -87,5 +87,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
   * Ex: `cat /etc/passwd | rev | cut -f1 -d: -s | rev`
 
 #### - head/tail
-  * Allows you to reverse the order of the characters of each line of the input stream towards the output stream  
-  * Ex: `cat /etc/passwd | rev | cut -f1 -d: -s | rev`
+  * head is a filter that allows you to extract the initial part of a file (default first 10 lines)
+    * -c NUM - produces the first NUM characters  
+      * -NUM - 
+    * -n NUM
