@@ -27,5 +27,5 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 * Confluence of streams
   * `ls > filename 2>&1` - Redirect stderr into stdout and then stdout to file (Order matters!)
 
-* Ridirezione stdin: `<`
+* stdin redirection: `<`
   * `sort < filename` - Dump the contents of the file to sort's stdin
