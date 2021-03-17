@@ -32,7 +32,7 @@
 
 Config file: **/etc/sudoers**
 
-Configure sudo:
+Configure sudo (add user username to sudoers):
  * Become root via `su -`
  * Launch the command `visudo`
  * Add the line `username <tab> ALL=(ALL:ALL) <space> ALL`
