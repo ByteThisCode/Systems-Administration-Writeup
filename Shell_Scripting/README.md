@@ -42,3 +42,12 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     -Every writing made to fd 4 with `>&4` will write to fileout  
     -Fd 5 can be used for both reading and writing to filerw  
     -To close: `exec 3>&- 4>&- 5>&-`
+
+* **Here documents**: `comands <<MARKUP`
+  * Ex:  ```
+    Lorem ipsum dolor sit amet
+    consectetur adipiscing elit
+    Curabitur at massa blandit
+    faucibus leo ac
+    venenatis odio.
+  ```
