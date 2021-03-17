@@ -49,7 +49,7 @@ Configure sudo:
 
 Useful for storing complex command lines into commands that are easier to invoke.
 
-`alias nomealias='commands'`
+`alias aliasname='commands'`
 
 ## - VIM
 
