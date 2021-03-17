@@ -70,12 +70,12 @@ Bash can disconnect predefined streams from the terminal and have the same file 
   * You can move using up/down arrow or up/down page
   * Main commands: 
   ```
-    * F / Space bar - Move Forward one page  
-    * Ng - Go to the N-th line in the file  
-    * G - Go to the last line in the file  
-    * /pattern - Search forward for matching patterns
-    * ?pattern - Search backward for matching patterns
-    * n - Repeat previous search
-    * N - Repeat previous search in reverse direction
-    * q - To quit less
-    ```
+    F / Space bar - Move Forward one page  
+    Ng - Go to the N-th line in the file  
+    G - Go to the last line in the file  
+    /pattern - Search forward for matching patterns
+    ?pattern - Search backward for matching patterns
+    n - Repeat previous search
+    N - Repeat previous search in reverse direction
+    q - To quit less
+  ```
