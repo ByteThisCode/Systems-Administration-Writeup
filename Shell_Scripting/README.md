@@ -109,5 +109,10 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
 ### - cut
   * Allows you to cut parts of lines
-  * -c - Produces for each input line an output line consisting only of the characters listed. Ex:   `cut -cPISITION [input_file]`
+  * -c - Produces for each input line an output line consisting only of the characters listed. Ex:   `cut -cPOSITION [input_file]`
+    ```
+    cut -c15 - Returns only the 15th character
+    cut -c8-30 - Returns the characters from the 8th to the 30th
+    cut -c-30 - Returns characters up to the 30th
+    cut -c8- - Returns the characters from the 8th onwards
  
