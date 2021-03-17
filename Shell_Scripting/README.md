@@ -267,8 +267,13 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       +        -   One or more occurrences of the atom that precedes it
       ```
    * Charset:
-       ```
-       [abc]   -   Any character between a, b or c
-       [a-z]   -   Any character between a and z inclusive
-       [^dc]   -   Any character that is neither d nor c
-       ```
+      ```
+      [abc]    -   Any character between a, b or c
+      [a-z]    -   Any character between a and z inclusive
+      [^dc]    -   Any character that is neither d nor c
+      ```
+   * Character class based charsets [:CLASS_NAME:], where CLASS_NAME:
+      ```
+      alnum digit punct alpha graph space
+      blank lower upper cntrl print xdigit
+      ```
