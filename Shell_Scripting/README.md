@@ -227,4 +227,17 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       -u - Unbuffered
       ```
     
-    
+### - awk
+  * Works on programs that contain rules comprised of patterns and actions. 
+  * The action is executed on the text that matches the pattern.
+  * Default: prints the number of the chosen field, provided it is separated from the previous one by a number of blanks
+  * Ex: `cat /etc/passwd | awk '{print $2}'` - Print the second field of the file 
+  * **-F separator** - To specify a file separator
+  * Identifiers:
+      ```
+      $0: Represents the entire line of text
+      $1: Represents the first field
+      $2: Represents the second field
+      $45: Represents the 45th field
+      $NF: Stands for "number of fields" and represents the last field
+      ```
