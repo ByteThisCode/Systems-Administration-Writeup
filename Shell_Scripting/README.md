@@ -16,7 +16,11 @@
     * [sort](#--sort)
     * [uniq](#--uniq)
     * [wc](#--wc)
-    * [gre](#--grep)
+    * [grep](#--grep)
+    * [tr](#--tr)
+    * [sed](#--sed)
+    * [awk](#--awk)
+3. [Regex](#--regex)
 
 ---------------
 ## - Useful Commands
