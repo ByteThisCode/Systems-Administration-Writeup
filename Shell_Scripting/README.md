@@ -33,5 +33,8 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 **Special Redirection**
 
 * **Definitive redirection**: `exec`  
-  Utseful for 
-  * Ex: `exec 2>/dev/null`
+
+  * Ex: `exec 2>/dev/null`  
+
+  Useful because open file descriptors are inherited by child processes:
+  * Ex: `exec 3< filein 4> fileout 5<> filerw`  
