@@ -241,3 +241,34 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       $45: Represents the 45th field
       $NF: Stands for "number of fields" and represents the last field
       ```
+
+---------------
+## - Regex
+
+  * Special Atoms:
+      ```
+      .        -   Indicates any character
+      ^        -   Indicates the start of the line
+      $        -   Indicates the end of the line
+      ```
+  * Backslash sequence:
+      ```
+      \< -\>   -   The empty string at the beginning - at the end of a word
+      \b       -   The empty string at the edge of a word
+      \B       -   The empty string provided it is not at the boundary of a word
+      \w       -   Any letter, number or _
+      \W       -   Any one not included in \w
+      ```
+  * Multipliers:
+      ```
+      {n,m}    -   From n to m occurrences of the atom that precedes it
+      ?        -   Zero or one occurrence of the atom that precedes it
+      *        -   Zero or more occurrences of the atom that precedes it
+      +        -   One or more occurrences of the atom that precedes it
+      ```
+   * Charset:
+       ```
+       [abc]   -   Any character between a, b or c
+       [a-z]   -   Any character between a and z inclusive
+       [^dc]   -   Any character that is neither d nor c
+       ```
