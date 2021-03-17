@@ -58,7 +58,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 ---------------
 ## - Filters
 
-- cat
+#### - cat
   * Invoked without parameters copies stdin to stdout  
   * Invoked with one or more files produces their contents in sequence on stdout: `cat file1 file2`
   * `tac` - Prints the input lines (stdin or file) on stdout in reverse order, from last to first
