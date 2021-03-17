@@ -202,3 +202,14 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       -c - This prints only a count of the lines that match a pattern
       --line-buffered - disable buffering
       ```
+      
+### - tr
+  * Replaces individual characters more quickly without regex, some examples:
+    * `tr 'A-Z' 'a-z'` - Changes uppercase to lowercase  
+    * `tr ';:.!?' ','` - Replaces any occurrence of the characters in the first set with ,
+    * `tr ';:.!?' ',-'` - If the second set is more limited than the first set, its character is repeated enough to generate the 1: 1 match
+    * `tr -d '\r'` - Eliminates any occurrence of the carriage return
+
+### - sed
+  * Stream EDitor, base format: `sed -e 'command'` or `sed -f 'script'`
+    
