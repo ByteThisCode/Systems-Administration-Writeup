@@ -15,7 +15,7 @@
 
 * `2>/dev/null` - Discard errors 
 
-
+---------------
 ## - Redirection
 
 Bash can disconnect predefined streams from the terminal and have the same file descriptor open on a different file.
@@ -55,7 +55,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     ```
   * For a single line the marker is not needed: `comand <<< "Single text line..."`
 
-
+---------------
 ## - Fitlers
 
 cat
