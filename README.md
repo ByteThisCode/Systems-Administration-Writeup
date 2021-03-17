@@ -9,7 +9,7 @@
   -Shutdown  
   -Alias  
   -VIM
-1. [Shell Scripting](./Shell_Scripting)
+1. [Shell Scripting](./Shell_Scripting)  
   -Redirection  
   -Filters  
   -Regex  
