@@ -1,1 +1,1 @@
-# Amministrazione di Sistemi - Writeup Corso
+# System Administration - Course Writeup
