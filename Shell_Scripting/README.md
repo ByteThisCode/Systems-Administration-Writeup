@@ -11,7 +11,7 @@
     * [cat](#--cat)  
     * [less](#--less)
     * [rev](#--rev)
-    * [head/tail](#--head/tail)
+    * [head/tail](#--headtail)
 
 ---------------
 ## - Useful Commands
