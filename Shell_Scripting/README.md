@@ -32,6 +32,6 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
 **Special Redirection**
 
-* **Definitive redirection**: `exec`
+* **Definitive redirection**: `exec`  
   Utseful for 
   * Ex: `exec 2>/dev/null`
