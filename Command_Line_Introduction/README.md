@@ -55,4 +55,4 @@ Useful for storing complex command lines into commands that are easier to invoke
 
 ## - VIM
 
--![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `TODO`
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `TODO`
