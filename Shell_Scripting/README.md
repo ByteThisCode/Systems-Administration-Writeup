@@ -3,30 +3,29 @@
 ---------------
 > [Back to Main](../../../)
 ---------------
-## Contenuti
+## - Contents
 
-0. [Comandi utili](#comandi-utili)
-1. [Ridirezione](#ridirezioni)
+0. [Useful Commands](#--useful-commands)
+1. [Redirection](#--redirection)
 
 ---------------
-## Comandi utili
+## - Useful Commands
 
-* `2>/dev/null` - Scarta gli errori 
+* `2>/dev/null` - Discard errors 
 
 
-## Ridirezione
+## - Redirection
 
-Bash può disconnettere gli stream predefiniti dal terminale e far trovare gli stessi file descriptor aperti su un file diverso-.
+Bash can disconnect predefined streams from the terminal and have the same file descriptor open on a different file.
 
-* Ridirezione stdout: `>` e `>>`
-  * `ls > filename` - Scrive lo stdout di ls nel file filename, troncandolo
-  * `ls >> filename` - Scrive lo stdout di ls nel file filename, in append
+* stdout redirection: `>` e `>>`
+  * `ls > filename` - Writes the stdout of ls to the file filename, truncating it
+  * `ls >> filename` - Writes the stdout of ls to the file filename, in append
+* stderror redirection: `2>` e `2>>`
+  * same as above
 
-* Ridirezione stderror: `2>` e `2>>`
-  * uguale a sopra
-
-* Confluenza degli stream
-  * `ls > filename 2>&1` - Ridirige lo stderr dentro stdout e poi stdout su file (L'ordine è importante!)
+* Confluence of streams
+  * `ls > filename 2>&1` - Redirect stderr into stdout and then stdout to file (Order matters!)
 
 * Ridirezione stdin: `<`
-  * `sort < filename` - Riversa il contenuto del file su stdin di sort
+  * `sort < filename` - Dump the contents of the file to sort's stdin
