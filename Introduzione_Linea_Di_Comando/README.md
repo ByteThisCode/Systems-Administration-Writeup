@@ -1,54 +1,53 @@
-# Introduzione linea di comando
+# Command Line Introduction
 
 ---------------
-## Contenuti
+## Contents
 
-0. [Comandi utili](#comandi-utili)
+0. [Useful Commands](#useful-commands)
 1. [Info](#info)
 2. [Sudo](#sudo)
 3. [Shutdown](#shutdown)
 4. [Alias](#alias)
 5. [VIM](#vim)
 ---------------
-## - Comandi utili
+## - Useful Commands
 
-- `history` - Per visualizzare l'elenco dei comandi eseguiti in un terminale
-  - CTRL-R attiva la reverse-i-search con la quale ricercare un comando
-- `script` - Cattura in un file una sessione di lavoro del terminale
-  - Per uscire digitare `exit` o `CTRL-D`
+- `history` - To view the list of commands executed in a terminal
+  - CTRL-R activates the reverse-i-search to search for a command
+- `script` - Capture a terminal work session in a file
+  - To exit type `exit` o `CTRL-D`
 
 ## - Info
 
-  * `whoami` - Indica il proprio username
-  * `id` - Informazioni sull'indentità e sul gruppo di appartenenza
-  * `who` - Indica chi è attualmente collegato alla macchina
+  * `whoami` - Indicate your username
+  * `id` - Information about the identity and the group to which it belongs
+  * `who` - Indicates who is currently connected to the machine
 
 
 ## - Sudo
 
-Configurare sudo:
- * Diventare root tramite `su -`
- * Lanciare il comando `visudo`
- * Aggiungere la linea `utente <tab> ALL=(ALL:ALL) <space> ALL`
- * Usare `adduser utente sudo`
- * Per aggiornare le modifiche effettuare un logout e rientrare
+Configure sudo:
+ * Become root via `su -`
+ * Launch the command `visudo`
+ * Add the line `username <tab> ALL=(ALL:ALL) <space> ALL`
+ * Type `adduser username sudo`
+ * To update the changes log out and re-enter
 
 `su - root`  
-`sudo -i` - Apre sessione terminale
-
+`sudo -i` - Open terminal session
 
 ## - Shutdown
 
 `shutdown [-h|-r] now` 
-* -h arresto  
-* -r riavvio  
-* -now quando eseguire l'azione
+* -h shutdown  
+* -r restart  
+* -now when to perform the action
 
 ## - Alias
 
-Utile per memorizzare linee di comando complesse in comandi più semplici da invocare.
+Useful for storing complex command lines into commands that are easier to invoke.
 
-`alias nomealias='comando'`
+`alias nomealias='commands'`
 
 ## - VIM
 
