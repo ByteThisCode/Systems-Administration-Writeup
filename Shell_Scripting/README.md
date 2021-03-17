@@ -10,6 +10,8 @@
 2. [Filters](#--filters)
     * [cat](#--cat)  
     * [less](#--less)
+    * [rev](#--rev)
+    * [head/tail](#--head/tail)
 
 ---------------
 ## - Useful Commands
@@ -79,3 +81,11 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     N - Repeat previous search in reverse direction
     q - To quit less
     ```
+
+#### - rev
+  * Allows you to reverse the order of the characters of each line of the input stream towards the output stream  
+  * Ex: `cat /etc/passwd | rev | cut -f1 -d: -s | rev`
+
+#### - Head/Tail
+  * Allows you to reverse the order of the characters of each line of the input stream towards the output stream  
+  * Ex: `cat /etc/passwd | rev | cut -f1 -d: -s | rev`
