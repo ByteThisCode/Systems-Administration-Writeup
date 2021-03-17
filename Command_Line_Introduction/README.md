@@ -19,14 +19,15 @@
 - `script` - Capture a terminal work session in a file
   - To exit type `exit` o `CTRL-D`
 - `which pname` - Lets you know which version of pname you are using
-
+- 
+---------------
 ## - Info
 
   * `whoami` - Indicate your username
   * `id` - Information about the identity and the group to which it belongs
   * `who` - Indicates who is currently connected to the machine
 
-
+---------------
 ## - Sudo
 
 Config file: **/etc/sudoers**
@@ -41,6 +42,7 @@ Configure sudo:
 `su - root`  
 `sudo -i` - Open terminal session
 
+---------------
 ## - Shutdown
 
 `shutdown [-h|-r] now` 
@@ -48,12 +50,14 @@ Configure sudo:
 * -r restart  
 * -now when to perform the action
 
+---------------
 ## - Alias
 
 Useful for storing complex command lines into commands that are easier to invoke.
 
 `alias aliasname='commands'`
 
+---------------
 ## - VIM
 
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `TODO`
