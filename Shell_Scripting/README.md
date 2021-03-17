@@ -16,6 +16,7 @@
     * [sort](#--sort)
     * [uniq](#--uniq)
     * [wc](#--wc)
+    * [gre](#--grep)
 
 ---------------
 ## - Useful Commands
@@ -171,4 +172,29 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       -m, --chars - Print the number of characters
       -c, --bytes - Print the number of bytes
       -L, --max-line-length - Print the length of the longest line
+      ```
+      
+### - grep
+  * Examines incoming lines of text and outputs those containing a pattern corresponding to a **regular expression**  
+  * **egrep** modern version
+  * Matching type check:  
+      ```
+      -E - Treats pattern as an extended regular expression  
+      -F - Disable the RE and use the parameter as a literal string  
+      -w, -x - Match whole word or whole line  
+      -i - Ignores case for matching  
+      ```  
+  * Input check:  
+      ```
+      -r - Recursively searches all files in a folder  
+      -f FILE - Takes patterns from file, one per line  
+      ```
+  * Output check:  
+      ```
+      -o - Print only the matched parts of a matching line, with each such part on a separate output line  
+      -v - Prints out all the lines that do not matches the pattern  
+      -l - Displays list of a filenames only
+      -n - Display the matched lines and their line numbers
+      -c - This prints only a count of the lines that match a pattern
+      --line-buffered - disable buffering
       ```
