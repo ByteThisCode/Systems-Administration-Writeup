@@ -3,12 +3,12 @@
 ---------------
 ## Contents
 
-0. [--Useful Commands](#useful-commands)
-1. [--Info](#info)
-2. [--Sudo](#sudo)
-3. [--Shutdown](#shutdown)
-4. [--Alias](#alias)
-5. [--VIM](#vim)
+0. [Useful Commands](#-useful-commands)
+1. [Info](#--info)
+2. [Sudo](#sudo)
+3. [Shutdown](#shutdown)
+4. [Alias](#alias)
+5. [VIM](#vim)
 ---------------
 ## - Useful Commands
 
