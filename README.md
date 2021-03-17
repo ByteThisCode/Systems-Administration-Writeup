@@ -4,7 +4,7 @@
 ## Contents
 
 0. [Command Line Introduction](./Command_Line_Introduction)  
-  ⋅⋅⋅test
+  - Test
 1. [Shell Scripting](./Shell_Scripting)
 
 ---------------
