@@ -43,9 +43,11 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     -Fd 5 can be used for both reading and writing to filerw  
     -To close: `exec 3>&- 4>&- 5>&-`
 
-* **Here documents**: `comands <<MARKUP`
+* **Here documents**: `comands <<MARKER`
+  Send text directly to a command until the chosen marker is inserted (case sensitive)
    ``` 
     Lorem ipsum dolor sit amet,  
     consectetur adipiscing elit.
-    MARKUP
+    MARKER
     ```
+  * For a single line the marker is not needed: `comand <<< "Single text line..."`
