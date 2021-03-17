@@ -126,4 +126,30 @@ Bash can disconnect predefined streams from the terminal and have the same file 
  
 
 ### - sort
-  * Allows you to sort the lines of a stream
+  * Allows you to sort the lines of a stream (default lexical order)
+  * Global behavior options:
+      ```
+      -u - Delete multiple entries (equivalent to sort | uniq)  
+      -r - Reverse (descending order)  
+      -R - Random (random permutation of lines)  
+      -m - Merge of the file already sorted  
+      -c - Check if the file is already sorted
+      ```  
+  * Other criteria:
+      ```
+      -b - Ignore leading spaces  
+      -d - Only consider alphanumeric characters and spaces  
+      -f - Ignore the difference between lowercase / uppercase  
+      -n - Interpret strings of numbers by their numeric value  
+      -h - Interpret "readable" numbers, such as 2K, 1G...
+      ```
+  * It can also search for sort keys in specific positions in the row:  
+      ```
+      -tSEP - Set SEP as separator between fields (default spaces)  
+      -kKEY - Sorting key, if used more than once, sorts by the first key, if this equal by the second key, and so on
+      ```  
+    KEY is in the form (simplified) `F[.C] [,F[.C]] [OPTS]`
+      * F = Field number  
+      * C = Position (characters) in the field  
+      * OPTS = One of the sorting options [bdfgiMhnRrV]
+      * Ex: `sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n` (sort ip address list)
