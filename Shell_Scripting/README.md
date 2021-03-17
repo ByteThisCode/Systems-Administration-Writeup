@@ -56,7 +56,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
   * For a single line the marker is not needed: `comand <<< "Single text line..."`
 
 ---------------
-## - Fitlers
+## - Filters
 
 - cat
   * Invoked without parameters copies stdin to stdout  
