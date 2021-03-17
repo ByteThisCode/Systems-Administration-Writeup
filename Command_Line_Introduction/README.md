@@ -18,6 +18,7 @@
   - CTRL-R activates the reverse-i-search to search for a command
 - `script` - Capture a terminal work session in a file
   - To exit type `exit` o `CTRL-D`
+- `which pname` - Lets you know which version of pname you are using
 
 ## - Info
 
