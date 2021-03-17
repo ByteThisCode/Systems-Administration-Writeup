@@ -1,6 +1,8 @@
 # Shell Scripting
 
 ---------------
+> [Back to Main](../../../)
+---------------
 ## Contenuti
 
 0. [Comandi utili](#comandi-utili)
