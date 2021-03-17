@@ -12,6 +12,7 @@
     * [less](#--less)
     * [rev](#--rev)
     * [head/tail](#--headtail)
+    * [cut](#--cut)
 
 ---------------
 ## - Useful Commands
@@ -107,5 +108,6 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       ```
 
 ### - cut
-  * Allows you to cut parts of lines  
+  * Allows you to cut parts of lines
+  * -c - Produces for each input line an output line consisting only of the characters listed. Ex:   `cut -cPISITION [input_file]`
  
