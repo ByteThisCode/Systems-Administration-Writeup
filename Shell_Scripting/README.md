@@ -68,7 +68,8 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 #### - less
   * Displays the contents of a file or a command output, one page at a time. Allows you to navigate both forward and backward through the file.  
   * You can move using up/down arrow or up/down page
-  * Main commands:
+  * Main commands: 
+  ```
     * F / Space bar - Move Forward one page  
     * Ng - Go to the N-th line in the file  
     * G - Go to the last line in the file  
@@ -77,4 +78,4 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     * n - Repeat previous search
     * N - Repeat previous search in reverse direction
     * q - To quit less
-  
+    ```
