@@ -61,13 +61,13 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 ---------------
 ## - Filters
 
-#### - cat
+### - cat
   * Invoked without parameters copies stdin to stdout  
   * Invoked with one or more files produces their contents in sequence on stdout: `cat file1 file2`
   * `tac` - Prints the input lines (stdin or file) on stdout in reverse order, from last to first
 
 
-#### - less
+### - less
   * Displays the contents of a file or a command output, one page at a time. Allows you to navigate both forward and backward through the file.  
   * You can move using up/down arrow or up/down page
   * Main commands: 
@@ -82,11 +82,11 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     q - To quit less
     ```
 
-#### - rev
+### - rev
   * Allows you to reverse the order of the characters of each line of the input stream towards the output stream  
   * Ex: `cat /etc/passwd | rev | cut -f1 -d: -s | rev`
 
-#### - head/tail
+### - head/tail
   * head is a filter that allows you to extract the initial part of a file (default first 10 lines)
     * -c NUM - Produces the first NUM characters  
     * -c -NUM - Produces the entire file except the last NUM characters 
