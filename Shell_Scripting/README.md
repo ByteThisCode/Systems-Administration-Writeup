@@ -38,4 +38,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
   Useful because open file descriptors are inherited by child processes:
   * Ex: `exec 3< filein 4> fileout 5<> filerw`  
-    Every reading made from fd 3 with <& 3 will read from filein
+    -Every reading made from fd 3 with `<&3` will read from filein  
+    -Every writing made to fd 4 with `>&4` will write to fileout  
+    -Fd 5 can be used for both reading and writing to filerw  
+    -To close: `exec 3>&- 4>&- 5>&-`
