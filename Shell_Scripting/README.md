@@ -66,7 +66,15 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
 
 #### - less
-  * Invoked without parameters copies stdin to stdout  
-  * Invoked with one or more files produces their contents in sequence on stdout: `cat file1 file2`
-  * `tac` - Prints the input lines (stdin or file) on stdout in reverse order, from last to first
+  * Displays the contents of a file or a command output, one page at a time. Allows you to navigate both forward and backward through the file.  
+  * You can move using up/down arrow or up/down page
+  * Main commands:
+    * F / Space bar - Move Forward one page  
+    * Ng - Go to the N-th line in the file  
+    * G - Go to the last line in the file  
+    * /pattern - Search forward for matching patterns
+    * ?pattern - Search backward for matching patterns
+    * n - Repeat previous search
+    * N - Repeat previous search in reverse direction
+    * q - To quit less
   
