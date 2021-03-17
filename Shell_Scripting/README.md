@@ -88,10 +88,12 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
 ### - head/tail
   * **head** is a filter that allows you to extract the initial part of a file (default first 10 lines)
-    * -c NUM - Produces the first NUM characters  
-    * -c -NUM - Produces the entire file except the last NUM characters 
-    * -n NUM - Produces the first NUM lines
-    * -n -NUM - Produces the entire file except the last NUM lines 
+      ```
+    -c NUM - Produces the first NUM characters  
+    -c -NUM - Produces the entire file except the last NUM characters 
+    -n NUM - Produces the first NUM lines
+    -n -NUM - Produces the entire file except the last NUM lines 
+    ```
    
   * **tail** is a filter that allows you to extract the final part of a file (default last 10 lines)
       ```
@@ -106,4 +108,4 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
 ### - cut
   * Allows you to cut parts of lines  
-  * Ex: `cat /etc/passwd | rev | cut -f1 -d: -s | rev`
+ 
