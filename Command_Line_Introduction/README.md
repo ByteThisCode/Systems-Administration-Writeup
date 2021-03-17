@@ -28,6 +28,8 @@
 
 ## - Sudo
 
+Config file: **/etc/sudoers**
+
 Configure sudo:
  * Become root via `su -`
  * Launch the command `visudo`
