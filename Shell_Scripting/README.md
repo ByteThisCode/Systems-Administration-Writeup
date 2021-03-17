@@ -86,6 +86,6 @@ Bash can disconnect predefined streams from the terminal and have the same file 
   * Allows you to reverse the order of the characters of each line of the input stream towards the output stream  
   * Ex: `cat /etc/passwd | rev | cut -f1 -d: -s | rev`
 
-#### - Head/Tail
+#### - head/tail
   * Allows you to reverse the order of the characters of each line of the input stream towards the output stream  
   * Ex: `cat /etc/passwd | rev | cut -f1 -d: -s | rev`
