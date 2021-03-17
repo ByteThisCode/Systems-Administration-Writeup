@@ -14,6 +14,8 @@
     * [head/tail](#--headtail)
     * [cut](#--cut)
     * [sort](#--sort)
+    * [uniq](#--uniq)
+    * [wc](#--wc)
 
 ---------------
 ## - Useful Commands
@@ -153,3 +155,20 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       * C = Position (characters) in the field  
       * OPTS = One of the sorting options [bdfgiMhnRrV]
       * Ex: `sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n` (sort ip address list)
+
+### - uniq
+  * Eliminates consecutive duplicates  
+      ```
+      -c - It also indicates the number of rows packed into one (ocurrence number)
+      -d - It shows only non-single entries
+      ```
+      
+ ### - wc
+  * (word count) is a count filter
+      ```
+      -l, --lines - Print the number of lines
+      -w, --words - Print the number of words
+      -m, --chars - Print the number of characters
+      -c, --bytes - Print the number of bytes
+      -L, --max-line-length - Print the length of the longest line
+      ```
