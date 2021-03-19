@@ -22,6 +22,7 @@
     * [awk](#--awk)
 3. [Regex](#--regex)
 4. [xargs](#--xargs)
+5. [Process Substitution](#--process-substitution)
 
 ---------------
 ## - Useful Commands
@@ -289,8 +290,11 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       * xargs passes the input lines as they are on the command line built. The presence of spacers will therefore make the command perceive invoked a multiplicity of parameters
   * Options:
       ```
-      -0 (zero)   - Uses null, not space, as the argument terminator
-      -L MAX      -
-      -p          - 
+      -0 (zero)      - Uses null, not space, as the argument terminator
+      -L MAX         - Use at most MAX input lines for each invocation
+      -p             - It asks interactively for confirmation of the launch of each command
       ```
 
+
+---------------
+## - Process Substitution
