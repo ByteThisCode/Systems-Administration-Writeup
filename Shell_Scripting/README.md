@@ -316,14 +316,16 @@ Bash can disconnect predefined streams from the terminal and have the same file 
   *  `cmd_producer_on_file >(cmd_consumer_from_stdin)`
   *  Examples:
       ```
-      bash$ echo >(true)
-      /dev/fd/63
-
-      bash$ echo <(true)
-      /dev/fd/63
-
-      bash$ echo >(true) <(true)
-      /dev/fd/63 /dev/fd/62
+      bash$ cat <(date)
+         Thu Jul 21 12:40:53 EEST 2011
+      
+      bash$ cat <(date) <(date) <(date)
+         Thu Jul 21 12:44:45 EEST 2011
+         Thu Jul 21 12:44:45 EEST 2011
+         Thu Jul 21 12:44:45 EEST 2011
+     
+      bash$ echo <(date) <(date) <(date)
+         /proc/self/fd/11 /proc/self/fd/12 /proc/self/fd/13
 
       bash$ wc <(cat /usr/share/dict/linux.words)
        483523  483523 4992010 /dev/fd/63
