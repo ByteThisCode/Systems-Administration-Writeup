@@ -373,11 +373,21 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     * c : change
     * d : delete
   * Example:
-      file1:            file2:
       ```
+      file1:            file2:
       row one           row one
       row two           row three
       row three         row 4
       row four          row five
       row five          row 4bis
+      
+      bash$ diff file1 file2
+         2d1
+         < row two
+         4c3
+         < row four
+         ---
+         > row 4
+         5a5
+         > row 5bis
       ```
