@@ -407,3 +407,5 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
 ---------------
 ## - Quoting
+
+  * The wildcard expansion mechanism and variables is powerful but interferes with literal interpretation of some symbols: []!*?${}()"'\`\\|><;
