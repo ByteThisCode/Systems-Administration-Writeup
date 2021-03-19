@@ -21,6 +21,7 @@
     * [sed](#--sed)
     * [awk](#--awk)
 3. [Regex](#--regex)
+4. [xargs](#--xargs)
 
 ---------------
 ## - Useful Commands
@@ -195,20 +196,20 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       ```
   * Output check:  
       ```
-      -o - Print only the matched parts of a matching line, with each such part on a separate output line  
-      -v - Prints out all the lines that do not matches the pattern  
-      -l - Displays list of a filenames only
-      -n - Display the matched lines and their line numbers
-      -c - This prints only a count of the lines that match a pattern
-      --line-buffered - disable buffering
+      -o                - Print only the matched parts of a matching line, with each such part on a separate output line  
+      -v                - Prints out all the lines that do not matches the pattern  
+      -l                - Displays list of a filenames only
+      -n                - Display the matched lines and their line numbers
+      -c                - This prints only a count of the lines that match a pattern
+      --line-buffered   - disable buffering
       ```
       
 ### - tr
   * Replaces individual characters more quickly without regex, some examples:
-    * `tr 'A-Z' 'a-z'` - Changes uppercase to lowercase  
-    * `tr ';:.!?' ','` - Replaces any occurrence of the characters in the first set with ,
-    * `tr ';:.!?' ',-'` - If the second set is more limited than the first set, its character is repeated enough to generate the 1: 1 match
-    * `tr -d '\r'` - Eliminates any occurrence of the carriage return
+    * `tr 'A-Z' 'a-z'`     - Changes uppercase to lowercase  
+    * `tr ';:.!?' ','`     - Replaces any occurrence of the characters in the first set with ,
+    * `tr ';:.!?' ',-'`    - If the second set is more limited than the first set, its character is repeated enough to generate the 1: 1 match
+    * `tr -d '\r'`         - Eliminates any occurrence of the carriage return
 
 ### - sed
   * Stream EDitor, base format: `sed -e 'command'` or `sed -f 'script'`  
@@ -217,14 +218,14 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     * With -E the patterns are about those of egrep  
   * Substitution command modifier:
       ``` 
-      i - Case sensitive
-      g - Global, replaces all occurrences in the line
-      NUM - Replaces only the NUMth occurrence 
+      i        - Case sensitive
+      g        - Global, replaces all occurrences in the line
+      NUM      - Replaces only the NUMth occurrence 
       ```
   * Command line options:
       ```
-      -i [suffix] - Edits the given file [backup with SUFFIX extension if provided]
-      -u - Unbuffered
+      -i [suffix]    - Edits the given file [backup with SUFFIX extension if provided]
+      -u             - Unbuffered
       ```
     
 ### - awk
@@ -277,3 +278,19 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       alnum digit punct alpha graph space
       blank lower upper cntrl print xdigit
       ```
+
+---------------
+## - xargs
+
+  * xargs <command> expects a list of strings on standard input, and it then invokes command with those strings as arguments
+  * Ex: `pipeline | which produces | filenames | xargs ls -l` - Will run ls -l for each file received from the pipeline
+  * Peculiarities of behavior:
+      * xargs groups the invocations in order to reduce the load. This can work with commands like ls, but not if the command accepts a single parameter
+      * xargs passes the input lines as they are on the command line built. The presence of spacers will therefore make the command perceive invoked a multiplicity of parameters
+  * Options:
+      ```
+      -0 (zero)   - Uses null, not space, as the argument terminator
+      -L MAX      -
+      -p          - 
+      ```
+
