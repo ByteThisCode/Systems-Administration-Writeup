@@ -13,5 +13,9 @@
   -Redirection  
   -Filters  
   -Regex  
+  -xargs  
+  -tee  
+  -Process Substitution  
+  -Command Substitution  
 
 ---------------
