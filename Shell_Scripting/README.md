@@ -22,7 +22,8 @@
     * [awk](#--awk)
 3. [Regex](#--regex)
 4. [xargs](#--xargs)
-5. [Process Substitution](#--process-substitution)
+5. [tee](#--tee)
+6. [Process Substitution](#--process-substitution)
 
 ---------------
 ## - Useful Commands
@@ -284,7 +285,6 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 ## - xargs
 
   * xargs <command> expects a list of strings on standard input, and it then invokes command with those strings as arguments
-  * Ex: `pipeline | which produces | filenames | xargs ls -l` - Will run ls -l for each file received from the pipeline
   * Peculiarities of behavior:
       * xargs groups the invocations in order to reduce the load. This can work with commands like ls, but not if the command accepts a single parameter
       * xargs passes the input lines as they are on the command line built. The presence of spacers will therefore make the command perceive invoked a multiplicity of parameters
@@ -292,9 +292,45 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       ```
       -0 (zero)      - Uses null, not space, as the argument terminator
       -L MAX         - Use at most MAX input lines for each invocation
-      -p             - It asks interactively for confirmation of the launch of each command
+      -p             - It asks interactively for confirmation of the launch of each command (useful to keep strings together)
       ```
+  * Ex: `pipeline | which produces | filenames | xargs ls -l` - Will run ls -l for each file received from the pipeline
+  * Ex: `cd /etc && echo passwd group | xargs ls -l` - Will run ls -l for each file received from the pipeline
 
 
 ---------------
+## - tee
+
+  * Is a useful command for duplicating an output stream
+    * Send a copy of stdin to stdout
+    * Sends an identical copy in a file passed as a parameter
+    * -a    - The file is opened in append
+  * Ex: `command1 | tee FILE | command2`
+
+---------------
 ## - Process Substitution
+
+  *  Pipe the stdout of multiple commands (Feeds the output of a process (or processes) into the stdin of another process)
+  *  There is no space between the the "<" or ">" and the parentheses
+  *  `cmd_consumer <(cmd_producer_on_stdout)`
+  *  `cmd_producer_on_file >(cmd_consumer_from_stdin)`
+  *  Examples:
+      ```
+      bash$ echo >(true)
+      /dev/fd/63
+
+      bash$ echo <(true)
+      /dev/fd/63
+
+      bash$ echo >(true) <(true)
+      /dev/fd/63 /dev/fd/62
+
+      bash$ wc <(cat /usr/share/dict/linux.words)
+       483523  483523 4992010 /dev/fd/63
+
+      bash$ grep script /usr/share/dict/linux.words | wc
+          262     262    3601
+
+      bash$ wc <(grep script /usr/share/dict/linux.words)
+          262     262    3601 /dev/fd/63
+      ```
