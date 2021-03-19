@@ -65,16 +65,16 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     -Every reading made from fd 3 with `<&3` will read from filein  
     -Every writing made to fd 4 with `>&4` will write to fileout  
     -Fd 5 can be used for both reading and writing to filerw  
-    -To close: `exec 3>&- 4>&- 5>&-`
+    -To close: `exec 3>&- 4>&- 5>&-`  
 
-* **Here documents**: `commands <<MARKER`
-  Send text directly to a command until the chosen marker is inserted (case sensitive)
+* **Here documents**: `commands <<MARKER`  
+  Send text directly to a command until the chosen marker is inserted (case sensitive)  
    ``` 
     Lorem ipsum dolor sit amet,  
     consectetur adipiscing elit.
     MARKER
     ```
-  * For a single line the marker is not needed: `comand <<< "Single text line..."`
+  * For a single line the marker is not needed: `comand <<< "Single text line..."`  
 
 ---------------
 ## - Filters
@@ -93,11 +93,11 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     F / Space bar    - Move Forward one page  
     Ng               - Go to the N-th line in the file  
     G                - Go to the last line in the file  
-    /pattern         - Search forward for matching patterns
-    ?pattern         - Search backward for matching patterns
-    n                - Repeat previous search
-    N                - Repeat previous search in reverse direction
-    q                - To quit less
+    /pattern         - Search forward for matching patterns  
+    ?pattern         - Search backward for matching patterns  
+    n                - Repeat previous search  
+    N                - Repeat previous search in reverse direction  
+    q                - To quit less  
     ```
 
 ### - rev
@@ -109,8 +109,8 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       ```
     -c NUM        - Produces the first NUM characters  
     -c -NUM       - Produces the entire file except the last NUM characters 
-    -n NUM        - Produces the first NUM lines
-    -n -NUM       - Produces the entire file except the last NUM lines 
+    -n NUM        - Produces the first NUM lines  
+    -n -NUM       - Produces the entire file except the last NUM lines  
     ```
    
   * **tail** is a filter that allows you to extract the final part of a file (default last 10 lines)
@@ -128,68 +128,68 @@ Bash can disconnect predefined streams from the terminal and have the same file 
   * Allows you to cut parts of lines
   * -c - Produces for each input line an output line consisting only of the characters listed. Ex:   `cut -cPOSITION [input_file]`
     ```
-    cut -c15            - Returns only the 15th character
-    cut -c8-30          - Returns the characters from the 8th to the 30th
-    cut -c-30           - Returns characters up to the 30th
-    cut -c8-            - Returns the characters from the 8th onwards
+    cut -c15            - Returns only the 15th character  
+    cut -c8-30          - Returns the characters from the 8th to the 30th  
+    cut -c-30           - Returns characters up to the 30th  
+    cut -c8-            - Returns the characters from the 8th onwards  
     ```
   * Other options:
-    * -d             - Allows you to define a delimiter
-    * -f             - Allows you to select a field
-    * `cut -dDELIMITER -fNUM`
-    * Ex:  `cat /etc/passwd | cut -d: -f1 -s`
-      * -s - It prevents lines that do not contain the delimiter from being output   
+    * -d             - Allows you to define a delimiter  
+    * -f             - Allows you to select a field  
+    * `cut -dDELIMITER -fNUM`  
+    * Ex:  `cat /etc/passwd | cut -d: -f1 -s`  
+      * -s - It prevents lines that do not contain the delimiter from being output    
  
 
 ### - sort
-  * Allows you to sort the lines of a stream (default lexical order)
-  * Global behavior options:
+  * Allows you to sort the lines of a stream (default lexical order)  
+  * Global behavior options:  
       ```
       -u             - Delete multiple entries (equivalent to sort | uniq)  
       -r             - Reverse (descending order)  
       -R             - Random (random permutation of lines)  
       -m             - Merge of the file already sorted  
-      -c             - Check if the file is already sorted
+      -c             - Check if the file is already sorted  
       ```  
-  * Other criteria:
+  * Other criteria:  
       ```
-      -b             - Ignore leading spaces  
-      -d             - Only consider alphanumeric characters and spaces  
+      -b             - Ignore leading spaces   
+      -d             - Only consider alphanumeric characters and spaces   
       -f             - Ignore the difference between lowercase / uppercase  
       -n             - Interpret strings of numbers by their numeric value  
-      -h             - Interpret "readable" numbers, such as 2K, 1G...
+      -h             - Interpret "readable" numbers, such as 2K, 1G...  
       ```
-  * It can also search for sort keys in specific positions in the row:  
+  * It can also search for sort keys in specific positions in the row:   
       ```
       -tSEP          - Set SEP as separator between fields (default spaces)  
-      -kKEY          - Sorting key, if used more than once, sorts by the first key, if this equal by the second key, and so on
+      -kKEY          - Sorting key, if used more than once, sorts by the first key, if this equal by the second key, and so on  
       ```  
-    KEY is in the form (simplified) `F[.C] [,F[.C]] [OPTS]`
+    KEY is in the form (simplified) `F[.C] [,F[.C]] [OPTS]`  
       * F = Field number  
       * C = Position (characters) in the field  
-      * OPTS = One of the sorting options [bdfgiMhnRrV]
-      * Ex: `sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n` (sort ip address list)
+      * OPTS = One of the sorting options [bdfgiMhnRrV]  
+      * Ex: `sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n` (sort ip address list)  
 
 ### - uniq
-  * Eliminates consecutive duplicates  
+  * Eliminates consecutive duplicates   
       ```
-      -c             - It also indicates the number of rows packed into one (ocurrence number)
-      -d             - It shows only non-single entries
+      -c             - It also indicates the number of rows packed into one (ocurrence number)  
+      -d             - It shows only non-single entries  
       ```
       
  ### - wc
   * (word count) is a count filter
       ```
-      -l, --lines             - Print the number of lines
-      -w, --words             - Print the number of words
-      -m, --chars             - Print the number of characters
-      -c, --bytes             - Print the number of bytes
-      -L, --max-line-length   - Print the length of the longest line
+      -l, --lines             - Print the number of lines  
+      -w, --words             - Print the number of words  
+      -m, --chars             - Print the number of characters  
+      -c, --bytes             - Print the number of bytes  
+      -L, --max-line-length   - Print the length of the longest line  
       ```
       
 ### - grep
   * Examines incoming lines of text and outputs those containing a pattern corresponding to a **regular expression**  
-  * **egrep** modern version
+  * **egrep** modern version  
   * Matching type check:  
       ```
       -E                - Treats pattern as an extended regular expression  
@@ -206,220 +206,220 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       ```
       -o                - Print only the matched parts of a matching line, with each such part on a separate output line  
       -v                - Prints out all the lines that do not matches the pattern  
-      -l                - Displays list of a filenames only
-      -n                - Display the matched lines and their line numbers
-      -c                - This prints only a count of the lines that match a pattern
-      --line-buffered   - disable buffering
+      -l                - Displays list of a filenames only  
+      -n                - Display the matched lines and their line numbers  
+      -c                - This prints only a count of the lines that match a pattern  
+      --line-buffered   - disable buffering  
       ```
       
 ### - tr
-  * Replaces individual characters more quickly without regex, some examples:
-    * `tr 'A-Z' 'a-z'`     - Changes uppercase to lowercase  
-    * `tr ';:.!?' ','`     - Replaces any occurrence of the characters in the first set with ,
-    * `tr ';:.!?' ',-'`    - If the second set is more limited than the first set, its character is repeated enough to generate the 1: 1 match
-    * `tr -d '\r'`         - Eliminates any occurrence of the carriage return
+  * Replaces individual characters more quickly without regex, some examples:  
+    * `tr 'A-Z' 'a-z'`     - Changes uppercase to lowercase   
+    * `tr ';:.!?' ','`     - Replaces any occurrence of the characters in the first set with ,  
+    * `tr ';:.!?' ',-'`    - If the second set is more limited than the first set, its character is repeated enough to generate the 1: 1 match  
+    * `tr -d '\r'`         - Eliminates any occurrence of the carriage return  
 
 ### - sed
   * Stream EDitor, base format: `sed -e 'command'` or `sed -f 'script'`  
   * Substitution command: `sed 's/OLD_PATTERN/NEW_VALUE/[modifiers]'`  
-    * Ex: `cat /etc/passwd | sed 's/^/Line:/'` - Insert string 'line:' at the beginning of each line of passwd
+    * Ex: `cat /etc/passwd | sed 's/^/Line:/'` - Insert string 'line:' at the beginning of each line of passwd  
     * With -E the patterns are about those of egrep  
-  * Substitution command modifier:
+  * Substitution command modifier:  
       ``` 
-      i        - Case sensitive
-      g        - Global, replaces all occurrences in the line
-      NUM      - Replaces only the NUMth occurrence 
+      i        - Case sensitive  
+      g        - Global, replaces all occurrences in the line  
+      NUM      - Replaces only the NUMth occurrence  
       ```
-  * Command line options:
+  * Command line options:  
       ```
-      -i [suffix]    - Edits the given file [backup with SUFFIX extension if provided]
-      -u             - Unbuffered
+      -i [suffix]    - Edits the given file [backup with SUFFIX extension if provided]  
+      -u             - Unbuffered  
       ```
   
-  * Examples:
+  * Examples:  
       ```
-      (file : hi hi hi)
-      bash$ cat file | sed -e 's/hi/hello/'
-         hello hi hi
-      bash$ cat file | sed -e 's/hi/hello/g'
-         hello hello hello
+      (file : hi hi hi)  
+      bash$ cat file | sed -e 's/hi/hello/'  
+         hello hi hi  
+      bash$ cat file | sed -e 's/hi/hello/g'  
+         hello hello hello  
       ```
       
     
 ### - awk
-  * Works on programs that contain rules comprised of patterns and actions. 
-  * The action is executed on the text that matches the pattern.
-  * Default: prints the number of the chosen field, provided it is separated from the previous one by a number of blanks
-  * Ex: `cat /etc/passwd | awk '{print $2}'` - Print the second field of the file 
-  * **-F separator** - To specify a file separator
-  * Identifiers:
+  * Works on programs that contain rules comprised of patterns and actions  
+  * The action is executed on the text that matches the pattern  
+  * Default: prints the number of the chosen field, provided it is separated from the previous one by a number of blanks  
+  * Ex: `cat /etc/passwd | awk '{print $2}'` - Print the second field of the file  
+  * **-F separator** - To specify a file separator  
+  * Identifiers:  
       ```
-      $0: Represents the entire line of text
-      $1: Represents the first field
-      $2: Represents the second field
-      $45: Represents the 45th field
-      $NF: Stands for "number of fields" and represents the last field
+      $0: Represents the entire line of text  
+      $1: Represents the first field  
+      $2: Represents the second field  
+      $45: Represents the 45th field  
+      $NF: Stands for "number of fields" and represents the last field  
       ```
 
 ---------------
 ## - Regex
 
-  * Special Atoms:
+  * Special Atoms:  
       ```
-      .        -   Indicates any character
-      ^        -   Indicates the start of the line
-      $        -   Indicates the end of the line
+      .        -   Indicates any character  
+      ^        -   Indicates the start of the line  
+      $        -   Indicates the end of the line  
       ```
-  * Backslash sequence:
+  * Backslash sequence:  
       ```
-      \< -\>   -   The empty string at the beginning - at the end of a word
-      \b       -   The empty string at the edge of a word
-      \B       -   The empty string provided it is not at the boundary of a word
-      \w       -   Any letter, number or _
-      \W       -   Any one not included in \w
+      \< -\>   -   The empty string at the beginning - at the end of a word  
+      \b       -   The empty string at the edge of a word  
+      \B       -   The empty string provided it is not at the boundary of a word  
+      \w       -   Any letter, number or _  
+      \W       -   Any one not included in \w  
       ```
-  * Multipliers:
+  * Multipliers:  
       ```
-      {n,m}    -   From n to m occurrences of the atom that precedes it
-      ?        -   Zero or one occurrence of the atom that precedes it
-      *        -   Zero or more occurrences of the atom that precedes it
-      +        -   One or more occurrences of the atom that precedes it
+      {n,m}    -   From n to m occurrences of the atom that precedes it  
+      ?        -   Zero or one occurrence of the atom that precedes it  
+      *        -   Zero or more occurrences of the atom that precedes it  
+      +        -   One or more occurrences of the atom that precedes it  
       ```
-   * Charset:
+   * Charset:  
       ```
-      [abc]    -   Any character between a, b or c
-      [a-z]    -   Any character between a and z inclusive
-      [^dc]    -   Any character that is neither d nor c
+      [abc]    -   Any character between a, b or c  
+      [a-z]    -   Any character between a and z inclusive  
+      [^dc]    -   Any character that is neither d nor c  
       ```
-   * Character class based charsets [:CLASS_NAME:], where CLASS_NAME:
+   * Character class based charsets [:CLASS_NAME:], where CLASS_NAME:  
       ```
-      alnum digit punct alpha graph space
-      blank lower upper cntrl print xdigit
+      alnum digit punct alpha graph space  
+      blank lower upper cntrl print xdigit  
       ```
 
 ---------------
 ## - xargs
 
-  * xargs <command> expects a list of strings on standard input, and it then invokes command with those strings as arguments
-  * Peculiarities of behavior:
-      * xargs groups the invocations in order to reduce the load. This can work with commands like ls, but not if the command accepts a single parameter
+  * xargs <command> expects a list of strings on standard input, and it then invokes command with those strings as arguments  
+  * Peculiarities of behavior:  
+      * xargs groups the invocations in order to reduce the load. This can work with commands like ls, but not if the command accepts a single parameter  
       * xargs passes the input lines as they are on the command line built. The presence of spacers will therefore make the command perceive invoked a multiplicity of parameters
-  * Options:
+  * Options:  
       ```
-      -0 (zero)      - Uses null, not space, as the argument terminator
-      -L MAX         - Use at most MAX input lines for each invocation
-      -p             - It asks interactively for confirmation of the launch of each command (useful to keep strings together)
+      -0 (zero)      - Uses null, not space, as the argument terminator  
+      -L MAX         - Use at most MAX input lines for each invocation  
+      -p             - It asks interactively for confirmation of the launch of each command (useful to keep strings together)  
       ```
-  * Ex: `pipeline | which produces | filenames | xargs ls -l` - Will run ls -l for each file received from the pipeline
-  * Ex: `cd /etc && echo passwd group | xargs ls -l` - Will run ls -l for each file received from the pipeline
+  * Ex: `pipeline | which produces | filenames | xargs ls -l` - Will run ls -l for each file received from the pipeline  
+  * Ex: `cd /etc && echo passwd group | xargs ls -l` - Will run ls -l for each file received from the pipeline  
 
 
 ---------------
 ## - tee
 
-  * Is a useful command for duplicating an output stream
-    * Send a copy of stdin to stdout
-    * Sends an identical copy in a file passed as a parameter
-    * -a    - The file is opened in append
-  * Ex: `command1 | tee FILE | command2`
+  * Is a useful command for duplicating an output stream  
+    * Send a copy of stdin to stdout  
+    * Sends an identical copy in a file passed as a parameter  
+    * -a    - The file is opened in append  
+  * Ex: `command1 | tee FILE | command2`  
 
 ---------------
 ## - Process Substitution
 
-  *  Pipe the stdout of multiple commands (Feeds the output of a process (or processes) into the stdin of another process)
-  *  Concurrently launches two processes where a pipe is used 
-  *  There is no space between the the "<" or ">" and the parentheses
-  *  `cmd_consumer <(cmd_producer_on_stdout)`
-  *  `cmd_producer_on_file >(cmd_consumer_from_stdin)`
-  *  Examples:
+  *  Pipe the stdout of multiple commands (Feeds the output of a process (or processes) into the stdin of another process)  
+  *  Concurrently launches two processes where a pipe is used   
+  *  There is no space between the the "<" or ">" and the parentheses  
+  *  `cmd_consumer <(cmd_producer_on_stdout)`  
+  *  `cmd_producer_on_file >(cmd_consumer_from_stdin)`  
+  *  Examples:  
       ```
-      bash$ less <(ls -l)
-         /dev/fo/12  - The pipe itself
+      bash$ less <(ls -l)   
+         /dev/fo/12  - The pipe itself  
          
-      bash$ cat <(date)
-         Thu Jul 21 12:40:53 EEST 2011
+      bash$ cat <(date)  
+         Thu Jul 21 12:40:53 EEST 2011  
       
-      bash$ cat <(date) <(date) <(date)
-         Thu Jul 21 12:44:45 EEST 2011
-         Thu Jul 21 12:44:45 EEST 2011
-         Thu Jul 21 12:44:45 EEST 2011
+      bash$ cat <(date) <(date) <(date)  
+         Thu Jul 21 12:44:45 EEST 2011  
+         Thu Jul 21 12:44:45 EEST 2011  
+         Thu Jul 21 12:44:45 EEST 2011  
      
-      bash$ echo <(date) <(date) <(date)
-         /proc/self/fd/11 /proc/self/fd/12 /proc/self/fd/13
+      bash$ echo <(date) <(date) <(date)  
+         /proc/self/fd/11 /proc/self/fd/12 /proc/self/fd/13  
 
-      bash$ wc <(cat /usr/share/dict/linux.words)
-       483523  483523 4992010 /dev/fd/63
+      bash$ wc <(cat /usr/share/dict/linux.words)  
+       483523  483523 4992010 /dev/fd/63  
 
-      bash$ grep script /usr/share/dict/linux.words | wc
-          262     262    3601
+      bash$ grep script /usr/share/dict/linux.words | wc  
+          262     262    3601  
 
-      bash$ wc <(grep script /usr/share/dict/linux.words)
-          262     262    3601 /dev/fd/63
+      bash$ wc <(grep script /usr/share/dict/linux.words)  
+          262     262    3601 /dev/fd/63  
       ```
 
 ---------------
 ## - Command Substitution
 
-  * Command substitution allows the output of a command to replace the command itself
-  * Command substitution occurs when a command is enclosed as follows:
-    * `$(command)`
-    * `'command'`
-  * Bash performs the expansion by executing command in a subshell environment and replacing the command substitution with the standard output of the command
-  * Ex: `ls $(cat /etc/passwd | cut -f6 -d:)` - Extracts the home dirs of the users and sets them as parameters to ls
+  * Command substitution allows the output of a command to replace the command itself  
+  * Command substitution occurs when a command is enclosed as follows:  
+    * `$(command)`  
+    * `'command'`  
+  * Bash performs the expansion by executing command in a subshell environment and replacing the command substitution with the standard output of the command  
+  * Ex: `ls $(cat /etc/passwd | cut -f6 -d:)` - Extracts the home dirs of the users and sets them as parameters to ls  
 
 ---------------
 ## - Multiple Files Tools
 
 ### - diff
-  * Allows you to show the differences between two files
-  * Special symbols:
-    * a : add
-    * c : change
-    * d : delete
-  * Example:
+  * Allows you to show the differences between two files  
+  * Special symbols:  
+    * a : add  
+    * c : change  
+    * d : delete  
+  * Example:  
       ```
-      file1:            file2:
-      row one           row one
-      row two           row three
-      row three         row 4
-      row four          row five
-      row five          row 4bis
+      file1:            file2:  
+      row one           row one  
+      row two           row three  
+      row three         row 4  
+      row four          row five  
+      row five          row 4bis  
       
-      bash$ diff file1 file2
-         2d1
-         < row two
-         4c3
-         < row four
-         ---
-         > row 4
-         5a5
-         > row 5bis
+      bash$ diff file1 file2  
+         2d1  
+         < row two  
+         4c3  
+         < row four  
+         ---  
+         > row 4  
+         5a5  
+         > row 5bis  
       ```
       
 ### - paste
-  * Used to join files horizontally (parallel merging) by outputting lines consisting of lines from each file specified, separated by tab as delimiter, to the standard output
-  * When no file is specified, or put dash ("-") instead of file name, paste reads from standard input and gives output until a interrupt command [Ctrl-C] is given
-  * Ex: `paste file1 file2 file3`
+  * Used to join files horizontally (parallel merging) by outputting lines consisting of lines from each file specified, separated by tab as delimiter, to the standard output  
+  * When no file is specified, or put dash ("-") instead of file name, paste reads from standard input and gives output until a interrupt command [Ctrl-C] is given  
+  * Ex: `paste file1 file2 file3`  
 
 ### - join
-  * Same principle as paste, but join lines if they start with the same "Key" (needs files sorted identically on the selected key)
-  * Ex: `join file1 file2`
+  * Same principle as paste, but join lines if they start with the same "Key" (needs files sorted identically on the selected key)  
+  * Ex: `join file1 file2`  
 
 ---------------
 ## - Quoting
 
-  * The wildcard expansion mechanism and variables is powerful but interferes with literal interpretation of some symbols such as: []!*?${}()"'\`\\|><;
-  * When you have to pass as a parameter to a command of strings containing such symbols, is required protect them from expansion
+  * The wildcard expansion mechanism and variables is powerful but interferes with literal interpretation of some symbols such as: []!*?${}()"'\`\\|><;  
+  * When you have to pass as a parameter to a command of strings containing such symbols, is required protect them from expansion  
   * Methods:  
       ```
-      \   - (backslash) inhibits the interpretation of the character only next as special
-      '   - (apex) each character of a string enclosed in a apex pair is protected from expansion and treated literally, without exception
-      "   - (double apex or double quote) any character of a string enclosed in a pair of quotation marks is protected from the expansion, 
-             with the exception of the $, of the backtick (`) of \, and other special cases
+      \   - (backslash) inhibits the interpretation of the character only next as special  
+      '   - (apex) each character of a string enclosed in a apex pair is protected from expansion and treated literally, without exception  
+      "   - (double apex or double quote) any character of a string enclosed in a pair of quotation marks is protected from the expansion,   
+             with the exception of the $, of the backtick (`) of \, and other special cases  
       ```
-  * Examples:
-      ```
-      \"       The backslash protects the quotes -> on the line remains "
-      '"'      As above, quotes protect quotes
-      \\       The first backslash protects the second -> on the line remains \
-      ```
+  * Examples:  
+      ```  
+      \"       The backslash protects the quotes -> on the line remains "  
+      '"'      As above, quotes protect quotes  
+      \\       The first backslash protects the second -> on the line remains \  
+      ```  
