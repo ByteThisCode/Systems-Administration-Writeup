@@ -410,7 +410,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
   * The wildcard expansion mechanism and variables is powerful but interferes with literal interpretation of some symbols such as: []!*?${}()"'\`\\|><;
   * When you have to pass as a parameter to a command of strings containing such symbols, is required protect them from expansion
-  * Methods:
+  * Methods:  
       ```
       \   - (backslash) inhibits the interpretation of the character only next as special
       '   - (apex) each character of a string enclosed in a apex pair is protected from expansion and treated literally, without exception
