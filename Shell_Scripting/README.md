@@ -408,4 +408,17 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 ---------------
 ## - Quoting
 
-  * The wildcard expansion mechanism and variables is powerful but interferes with literal interpretation of some symbols: []!*?${}()"'\`\\|><;
+  * The wildcard expansion mechanism and variables is powerful but interferes with literal interpretation of some symbols such as: []!*?${}()"'\`\\|><;
+  * When you have to pass as a parameter to a command of strings containing such symbols, is required protect them from expansion
+  * Methods:
+      ```
+      \        - (backslash) inhibits the interpretation of the character only next as special
+      '        - (apex) each character of a string enclosed in a apex pair is protected from expansion and treated literally, without exception
+      "        - (double apex or double quote) any character of a string enclosed in a pair of quotation marks is protected from the expansion, with the exception of the $, of the backtick (`) of \, and other special cases
+      ```
+  * Examples:
+      ```
+      \"       The backslash protects the quotes -> on the line remains "
+      '"'      As above, quotes protect quotes
+      \\       The first backslash protects the second -> on the line remains \
+      ```
