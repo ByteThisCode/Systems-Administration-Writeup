@@ -17,5 +17,6 @@
   -tee  
   -Process Substitution  
   -Command Substitution  
+  -Multiple Files Commands
 
 ---------------
