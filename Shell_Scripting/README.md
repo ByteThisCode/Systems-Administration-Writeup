@@ -24,6 +24,7 @@
 4. [xargs](#--xargs)
 5. [tee](#--tee)
 6. [Process Substitution](#--process-substitution)
+7. [Command Substitution](#--command-substitution)
 
 ---------------
 ## - Useful Commands
@@ -229,6 +230,16 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       -i [suffix]    - Edits the given file [backup with SUFFIX extension if provided]
       -u             - Unbuffered
       ```
+  
+  * Examples:
+      ```
+      (file : hi hi hi)
+      bash$ cat file | sed -e 's/hi/hello/'
+         hello hi hi
+      bash$ cat file | sed -e 's/hi/hello/g'
+         hello hello hello
+      ```
+      
     
 ### - awk
   * Works on programs that contain rules comprised of patterns and actions. 
@@ -311,11 +322,15 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 ## - Process Substitution
 
   *  Pipe the stdout of multiple commands (Feeds the output of a process (or processes) into the stdin of another process)
+  *  Concurrently launches two processes where a pipe is used 
   *  There is no space between the the "<" or ">" and the parentheses
   *  `cmd_consumer <(cmd_producer_on_stdout)`
   *  `cmd_producer_on_file >(cmd_consumer_from_stdin)`
   *  Examples:
       ```
+      bash$ less <(ls -l)
+         /dev/fo/12  - The pipe itself
+         
       bash$ cat <(date)
          Thu Jul 21 12:40:53 EEST 2011
       
@@ -336,3 +351,13 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       bash$ wc <(grep script /usr/share/dict/linux.words)
           262     262    3601 /dev/fd/63
       ```
+
+---------------
+## - Command Substitution
+
+  * Command substitution allows the output of a command to replace the command itself
+  * Command substitution occurs when a command is enclosed as follows:
+    * `$(command)`
+    * `'command'`
+  * Bash performs the expansion by executing command in a subshell environment and replacing the command substitution with the standard output of the command
+  * Ex: `ls $(cat /etc/passwd | cut -f6 -d:)` - Extracts the home dirs of the users and sets them as parameters to ls
