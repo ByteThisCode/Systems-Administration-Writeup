@@ -25,6 +25,7 @@
 5. [tee](#--tee)
 6. [Process Substitution](#--process-substitution)
 7. [Command Substitution](#--command-substitution)
+8. [Multiple Files Tools](#--multiple-files-tools)
 
 ---------------
 ## - Useful Commands
@@ -361,3 +362,22 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     * `'command'`
   * Bash performs the expansion by executing command in a subshell environment and replacing the command substitution with the standard output of the command
   * Ex: `ls $(cat /etc/passwd | cut -f6 -d:)` - Extracts the home dirs of the users and sets them as parameters to ls
+
+---------------
+## - Multiple Files Tools
+
+### - diff
+  * Allows you to show the differences between two files
+  * Special symbols:
+    * a : add
+    * c : change
+    * d : delete
+  * Example:
+      file1:            file2:
+      ```
+      row one           row one
+      row two           row three
+      row three         row 4
+      row four          row five
+      row five          row 4bis
+      ```
