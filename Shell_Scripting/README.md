@@ -26,6 +26,10 @@
 6. [Process Substitution](#--process-substitution)
 7. [Command Substitution](#--command-substitution)
 8. [Multiple Files Tools](#--multiple-files-tools)
+    * [diff](#--diff)  
+    * [paste](#--paste)
+    * [join](#--join)
+9. [Quoting](#--quoting)
 
 ---------------
 ## - Useful Commands
@@ -391,3 +395,15 @@ Bash can disconnect predefined streams from the terminal and have the same file 
          5a5
          > row 5bis
       ```
+      
+### - paste
+  * Used to join files horizontally (parallel merging) by outputting lines consisting of lines from each file specified, separated by tab as delimiter, to the standard output
+  * When no file is specified, or put dash ("-") instead of file name, paste reads from standard input and gives output until a interrupt command [Ctrl-C] is given
+  * Ex: `paste file1 file2 file3`
+
+### - join
+  * Same principle as paste, but join lines if they start with the same "Key" (needs files sorted identically on the selected key)
+  * Ex: `join file1 file2`
+
+---------------
+## - Quoting
