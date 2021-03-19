@@ -32,12 +32,15 @@
 
 Config file: **/etc/sudoers**
 
-Configure sudo (add user username to sudoers):
- * Become root via `su -`
- * Launch the command `visudo`
- * Add the line `username <tab> ALL=(ALL:ALL) <space> ALL`
- * Type `adduser username sudo`
- * To update the changes log out and re-enter
+Configure sudo (add user username to sudoers) two ways:
+ * A:
+   * Become root via `su -`
+   * Launch the command `visudo`
+   * Add the line `username <tab> ALL=(ALL:ALL) <space> ALL`
+   * Type `adduser username sudo`
+ * B:
+   * adduser username sudo
+ * To save changes logout and re-login
 
 `su - root`  
 `sudo -i` - Open terminal session
