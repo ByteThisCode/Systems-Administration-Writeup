@@ -32,9 +32,11 @@
 9. [Quoting](#--quoting)  
 10. [Pathname Expansion](#--pathname-expansion)  
 11. [Brace Expansion](#--brace-expansion)  
-12. [Variables](#--variables)
+12. [Parameter Expansion](#--parameter-expansion)
+13. [Variables](#--variables)  
     * [Environment Variables](#--environment-variables)   
-    * [Notable Variables](#--notable-variables)
+    * [Notable Variables](#--notable-variables)  
+    * [Positional Variables](#--positional-variables)  
 
 ---------------
 ## - Useful Commands
@@ -471,18 +473,85 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      doc{009..11}       ->  doc009 doc010 doc011         (009 zero-padding)  
      {a..j..3}          ->  a d g j                      (a,j single alphabetic character only)  
      ```  
+     
+---------------
+## - Parameter Expansion  
+
+ * Useful to be able to easily manage the assignment of default values
+ * Syntax: `variable + operator + arguments`  
+ * Examples:
+     ```
+     FILEDIR=${1:-"/tmp"}           -  Use default /tmp if $1 is null or not set - does not alter $1
+     cd ${HOME:=/tmp}               -  If $HOME is null or not set, it is initialized to the default /tmp, then expanded in any case
+     FILESRC=${2:?"File error!"}    -  Print the error and exit if $2 is null or not set
+            Note: omitting the ":", the empty string is considered valid and the default value is used only if the supplied variable is not set
+     
+     ${1    - Variable
+     :-     - Operator
+     "/tmp" - Argument
+     ```
+
+
+
 ---------------
 ## - Variables  
 
  * A way offered by the shell to store text strings under a given name  
  * The modification/creation of a variable is obtained by indicating on the command line the name of the variable followed by = and the value to be attributed to it  
- * Ex: `NAME=value`
+ * Ex: `NAME=value`  
  * Parameter expansion is used to read the contents of a variable, ex: `$NAME`  
  * If NAME is compound or ambiguous, protect it with {}: `${NAME}`  
 
-### - Environment Variables
-  * Provide a simple way to share configuration settings between multiple applications and processes in Linux: `export varname`  
-  * The current environment can be viewed with the `set` command
-  * `env`   -  Print a list of the current environment variables
+### - Environment Variables  
 
-### - Notable Variables (for bash)
+  * Provide a simple way to share configuration settings between multiple applications and processes in Linux: `export varname`  
+  * The current environment can be viewed with the `set` command  
+  * `env`   -  Print a list of the current environment variables  
+
+### - Notable Variables
+
+ * Set by bash:
+   ```
+   - BASHPID         -  PID of the current shell  
+   - $               -  PID of the "parent" shell  
+   - PPID            -  PID of the parent process of the "parent" shell  
+   - HOSTNAME        -  Host name  
+   - RANDOM          -  Random number from 0 to 32767  
+   - UID             -  User id running the shell  
+   ```
+ * Used by bash:
+   ```
+   - HOME            -  User home directory
+   - LC_vari         -  Choice of various aspects of localization
+      - man locale(7), locale(1) and locale(5)
+   - PS0..PS4        -  Prompts in different contexts
+   ```
+ * Others:  `man bash` -> Shell variables
+
+### - Positional Variables
+
+ * Each script can access the arguments indicated on its command line, using variables that have a number as their name:
+   ```
+   $#          -  Arguments numeber  
+   $0          -  Command name  
+   $1,$2...    -  Arguments  
+   $*, $@      -  Expanded into $1 $2 $3 ...  
+   "$*"        -  Expanded into "$1 $2 $3 ..."   
+   "$#"        -  Expanded into "$1" "$2" "$3" ...
+   ```
+ * Positional variables can be set manually:
+     ```
+     bash$ set dog cat house
+     bash$ echo $2
+      cat
+     ```
+ * `shift`  -  Size down the list of positional variables (excluding $0), assigning $N the content of $N+1:
+     ```
+     bash$ echo $# $1 $2 $3
+      3 dog cat house
+     bash$ shift
+     bash$ echo $# $1 $2
+      2 cat house
+     ```
+
+
