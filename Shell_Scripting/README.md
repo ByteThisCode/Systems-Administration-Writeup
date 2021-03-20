@@ -553,29 +553,99 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    "$*"        -  Expanded into "$1 $2 $3 ..."   
    "$#"        -  Expanded into "$1" "$2" "$3" ...
    ```
- * Positional variables can be set manually:
-     ```
-     bash$ set dog cat house
-     bash$ echo $2
-      cat
-     ```
- * `shift`  -  Size down the list of positional variables (excluding $0), assigning $N the content of $N+1:
-     ```
-     bash$ echo $# $1 $2 $3
-      3 dog cat house
-     bash$ shift
-     bash$ echo $# $1 $2
-      2 cat house
-     ```
+ * Positional variables can be set manually:  
+     ```  
+     bash$ set dog cat house  
+     bash$ echo $2  
+      cat  
+     ```  
+ * `shift`  -  Size down the list of positional variables (excluding $0), assigning $N the content of $N+1:  
+     ```  
+     bash$ echo $# $1 $2 $3 
+      3 dog cat house  
+     bash$ shift  
+     bash$ echo $# $1 $2  
+      2 cat house  
+     ```    
 
 ### - Indirect Access
 
- * Allows to obtain the name of a variable, which can then be used in any other expression, obtaining an indirect reference to
- * Example:
-     ```
-   bash$ KEY=RED
-   bash$ RED=VALUE
-   bash$ echo ${!KEY}
-      VALUE
-     ```
+ * Allows to obtain the name of a variable, which can then be used in any other expression, obtaining an indirect reference to  
+ * Example:  
+     ```  
+   bash$ KEY=RED  
+   bash$ RED=VALUE  
+   bash$ echo ${!KEY}  
+      VALUE  
+     ```  
 ### - Array
+
+ * Declaration: `delcare -a VECTOR`  
+ * Assignment: `VECTOR[0]="first value"`  
+ * Access: `echo ${VECTOR[0]}`  
+ * Direct initialization: `VECTOR=(value1 value2 value3)`  
+ 
+ * Initialization with alternative separators: 
+     ```
+     bash$ STRING="Here.there.are"
+     bash$ IFS='.' VECTOR=($STRING)
+     bash$ echo ${VECTOR[1]}
+      there
+     ```
+ * Indices can be non-consecutive:
+     ```
+     A[5]="an element"
+     A[8]="another element"
+     ```
+ * To view all the elements of the array you can use the index * or @
+     ```
+     bash$ echo "${A[*]}"
+      an element another element 
+     ```
+ * To know the set of indexes corresponding to actually assigned cells of the array, use `${!name[@]}` 
+     ```
+     bash$ echo ${!A[@]}
+      5 8 
+     ```
+ * To know the number of assigned cells, use `${#name[*]}`
+     ```
+     bash$ echo ${#A[*]}
+      2
+     ```
+ * **Array associativi** (bash 4 and next)
+   * In associative arrays, the index can be a string, not just a number: they are key-value maps
+     ```
+     declare -A ASAR
+      ASAR[chiaveuno]=valoreuno
+      echo ${ASAR[chiaveuno]}
+      valoreuno
+      KEY=chiaveuno
+      echo ${ASAR[$KEY]}
+      valoreuno
+     ```
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
