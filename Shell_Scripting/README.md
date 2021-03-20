@@ -42,6 +42,10 @@
 15. [Builtin Read](#--builtin-read)
 
 ---------------
+## - Other Examples
+0. [Quoting](./Examples)
+
+---------------
 ## - Useful Commands
 
 * `2>/dev/null` - Discard errors 
