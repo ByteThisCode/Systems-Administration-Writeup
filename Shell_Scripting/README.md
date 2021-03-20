@@ -495,12 +495,14 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      | name:number:number | Substring staring character, length |
      | ------------------ | ----------------------------------- |
      | #name | Return the length of the string |
-     | name#paern | Remove (shortest) front-anchored paern |
-     | name##paern | Remove (longest) front-anchored paern |
-     | name%paern | Remove (shortest) rear-anchored paern |
-     | name%%paern | Remove (longest) rear-anchored paern |
-     | name/paern/string | Replace rst occurrence |
-     | name//paern/string | Replace all occur \
+     | name#pattern | Remove (shortest) front-anchored pattern |
+     | name##pattern | Remove (longest) front-anchored pattern |
+     | name%pattern | Remove (shortest) rear-anchored pattern |
+     | name%%pattern | Remove (longest) rear-anchored pattern |
+     | name/pattern/string | Replace first occurrence |
+     | name//pattern/string | Replace all occurrence |
+   
+   Ex: Changing the .bad extension of a file to .good - `mv "${FN}" "${FN/.bad/.bash}`
      
 
 
