@@ -10,14 +10,20 @@
   -Alias  
   -VIM
 1. [Shell Scripting](./Shell_Scripting)  
-  -Redirection  
-  -Filters  
+  \- Redirection  
+  \- Filters  
   -Regex  
   -xargs  
   -tee  
   -Process Substitution  
   -Command Substitution  
   -Multiple Files Tools  
-  -Quoting
+  -Quoting  
+  -Pathname Expansion  
+  -Brace Expansion  
+  -Parameter Expansion  
+  -Variables  
+  -Array  
+  -Builtin Read  
 
 ---------------
