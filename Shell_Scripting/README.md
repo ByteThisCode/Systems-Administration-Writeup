@@ -30,6 +30,7 @@
     * [paste](#--paste)
     * [join](#--join)
 9. [Quoting](#--quoting)
+10. [Pathname Expansion](#--pathname-expansion)
 
 ---------------
 ## - Useful Commands
@@ -423,3 +424,20 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       '"'      As above, quotes protect quotes  
       \\       The first backslash protects the second -> on the line remains \  
       ```  
+      
+---------------
+## - Pathname Expansion  
+
+ * Used interactively with file and directory management commands
+ * The patterns are compared to the filesystem:  
+   * If there are no files that match the pattern, the pattern remains unchanged on the command line  
+   * if there are matching files, instead of the pattern are placed all their names, in alphabetical order  
+ * Pattern:  
+   * \*        - Represents any string of zero or more characters
+   * ?         - Represents any single character
+   * [SET]     - Represents any character belonging to SET:
+     * A list, ex: `[afhOV]`  
+     * An interval, ex: `[a-k]`  -  multiple intervals, ex: `[a-d, 0-5]`  
+     * It can be denied with `!` o `^`, ex: `[!a]` `[^A-Z]`  
+     * It can be a class like egrep, ex: `[[:alnum:]]`  
+     * To include `-` or `]` in the SET, put them as the first character  
