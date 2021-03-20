@@ -33,6 +33,8 @@
 10. [Pathname Expansion](#--pathname-expansion)  
 11. [Brace Expansion](#--brace-expansion)  
 12. [Variables](#--variables)
+    * [Environment Variables](#--environment-variables)   
+    * [Notable Variables](#--notable-variables)
 
 ---------------
 ## - Useful Commands
@@ -477,3 +479,10 @@ Bash can disconnect predefined streams from the terminal and have the same file 
  * Ex: `NAME=value`
  * Parameter expansion is used to read the contents of a variable, ex: `$NAME`  
  * If NAME is compound or ambiguous, protect it with {}: `${NAME}`  
+
+### - Environment Variables
+  * Provide a simple way to share configuration settings between multiple applications and processes in Linux: `export varname`  
+  * The current environment can be viewed with the `set` command
+  * `env`   -  Print a list of the current environment variables
+
+### - Notable Variables (for bash)
