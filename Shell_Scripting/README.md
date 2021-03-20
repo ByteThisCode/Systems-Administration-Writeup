@@ -613,15 +613,15 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       2
      ```
  * **Array associativi** (bash 4 and next)
-   * In associative arrays, the index can be a string, not just a number: they are key-value maps
+   * In associative arrays, the index can be a string, not just a number: they are key-value maps (note `-A` as option):
      ```
-     declare -A ASAR
-      ASAR[chiaveuno]=valoreuno
-      echo ${ASAR[chiaveuno]}
-      valoreuno
-      KEY=chiaveuno
-      echo ${ASAR[$KEY]}
-      valoreuno
+     bash$ declare -A ASAR
+     bash$ ASAR[fistkey]=firstvalue
+     bash$ echo ${ASAR[fistkey]}
+      firstvalue
+     bash$ KEY=fistkey
+     bash$ echo ${ASAR[$KEY]}
+      firstvalue
      ```
      
      
