@@ -495,12 +495,12 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      | name:number:number | Substring staring character, length |
      | ------------------ | ----------------------------------- |
      | #name | Return the length of the string |
-     name#paern Remove (shortest) front-anchored paern
-     name##paern Remove (longest) front-anchored paern
-     name%paern Remove (shortest) rear-anchored paern
-     name%%paern Remove (longest) rear-anchored paern
-     name/paern/string Replace rst occurrence
-     name//paern/string Replace all occur
+     | name#paern | Remove (shortest) front-anchored paern |
+     | name##paern | Remove (longest) front-anchored paern |
+     | name%paern | Remove (shortest) rear-anchored paern |
+     | name%%paern | Remove (longest) rear-anchored paern |
+     | name/paern/string | Replace rst occurrence |
+     | name//paern/string | Replace all occur \
      
 
 
