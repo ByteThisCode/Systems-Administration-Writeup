@@ -45,6 +45,7 @@
 ## - Useful Commands
 
 * `2>/dev/null` - Discard errors 
+* `unset VAR` To remove an environment variable/array  
 
 ---------------
 ## - Redirection
@@ -666,7 +667,10 @@ Bash can disconnect predefined streams from the terminal and have the same file 
          (nothing)  
        ```
      * Manipulate variables in child processes without losing the results before they can be used  
-       * Solution: Subshell  `echo hello | ( read A ; echo $A )`  
+       * Solution: Subshell  
+           ```
+           echo hello | ( read A ; echo $A )
+           ```  
      * Need to use to acquire read data interactively by the user in a child process that has stdin supplied by a pipe instead of from the terminal  
        * Solution: create a file descriptor for the terminal:
            ```
