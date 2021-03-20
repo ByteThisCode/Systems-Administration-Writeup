@@ -38,7 +38,7 @@
     * [Notable Variables](#--notable-variables)  
     * [Positional Variables](#--positional-variables) 
     * [Indirect Access](#--indirect-access)  
-    * [Array](#--array)
+14. [Array](#--array)
 
 ---------------
 ## - Useful Commands
@@ -578,7 +578,8 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    bash$ echo ${!KEY}  
       VALUE  
      ```  
-### - Array
+---------------
+## - Array
 
  * Declaration: `delcare -a VECTOR`  
  * Assignment: `VECTOR[0]="first value"`  
