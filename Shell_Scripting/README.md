@@ -36,7 +36,9 @@
 13. [Variables](#--variables)  
     * [Environment Variables](#--environment-variables)   
     * [Notable Variables](#--notable-variables)  
-    * [Positional Variables](#--positional-variables)  
+    * [Positional Variables](#--positional-variables) 
+    * [Indirect Access](#--indirect-access)  
+    * [Array](#--array)
 
 ---------------
 ## - Useful Commands
@@ -502,9 +504,8 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      | name/pattern/string | Replace first occurrence |
      | name//pattern/string | Replace all occurrence |
    
-   Ex: Changing the .bad extension of a file to .good - `mv "${FN}" "${FN/.bad/.bash}`
-     
-
+   ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `DO NOT WORKS`
+   Ex: Changing the .bad extension of a file to .good - `mv "${FN}" "${FN/.bad/.good}`
 
 ---------------
 ## - Variables  
@@ -567,4 +568,14 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       2 cat house
      ```
 
+### - Indirect Access
 
+ * Allows to obtain the name of a variable, which can then be used in any other expression, obtaining an indirect reference to
+ * Example:
+     ```
+   bash$ KEY=RED
+   bash$ RED=VALUE
+   bash$ echo ${!KEY}
+      VALUE
+     ```
+### - Array
