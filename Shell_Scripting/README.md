@@ -32,6 +32,7 @@
 9. [Quoting](#--quoting)  
 10. [Pathname Expansion](#--pathname-expansion)  
 11. [Brace Expansion](#--brace-expansion)  
+12. [Variables](#--variables)
 
 ---------------
 ## - Useful Commands
@@ -425,7 +426,20 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       '"'      As above, quotes protect quotes  
       \\       The first backslash protects the second -> on the line remains \  
       ```  
+  * Interaction examples:  
+      ```
+      A=hello
+      ls *\**           -  List filenames containing the * character in any position
+      echo "$A"         -  Print the contents of variable A exactly (hello)
+      echo '$A'         -  Print exactly $A
+      echo "'$A'"       -  Print 'hello'
       
+      bash$ echo $(ls)
+         file1 file2
+      bash$ echo "$(ls)"
+         file1
+         file2
+      ```
 ---------------
 ## - Pathname Expansion  
 
@@ -448,5 +462,18 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
  * Unlike pathname expansion, strings are generated independently regardless of whether or not there are files that match the pattern
  * Syntax: `[PRE]{LIST/SEQUENCE}[POST]`
- * List example: `a{d,c,b}e`  -  
- * 
+ * List example: `a{d,c,b}e`  ->  expanded from the shell into `ade ace abe○`  
+ * Sequence examples:  
+     ```  
+     file{9..13..2}.c   ->  file9.c file11.c file13.c    (..2 optional increment)    
+     doc{009..11}       ->  doc009 doc010 doc011         (009 zero-padding)  
+     {a..j..3}          ->  a d g j                      (a,j single alphabetic character only)  
+     ```  
+---------------
+## - Variables  
+
+ * A way offered by the shell to store text strings under a given name  
+ * The modification/creation of a variable is obtained by indicating on the command line the name of the variable followed by = and the value to be attributed to it  
+ * Ex: `NAME=value`
+ * Parameter expansion is used to read the contents of a variable, ex: `$NAME`  
+ * If NAME is compound or ambiguous, protect it with {}: `${NAME}`  
