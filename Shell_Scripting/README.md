@@ -127,7 +127,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
 ### - cut
   * Allows you to cut parts of lines
-  * -c - Produces for each input line an output line consisting only of the characters listed. Ex:   `cut -cPOSITION [input_file]`
+  * `-c` - Produces for each input line an output line consisting only of the characters listed. Ex:   `cut -cPOSITION [input_file]`
     ```
     cut -c15            - Returns only the 15th character  
     cut -c8-30          - Returns the characters from the 8th to the 30th  
@@ -135,11 +135,11 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     cut -c8-            - Returns the characters from the 8th onwards  
     ```
   * Other options:
-    * -d             - Allows you to define a delimiter  
-    * -f             - Allows you to select a field  
+    * `-d`             - Allows you to define a delimiter  
+    * `-f`             - Allows you to select a field  
     * `cut -dDELIMITER -fNUM`  
     * Ex:  `cat /etc/passwd | cut -d: -f1 -s`  
-      * -s - It prevents lines that do not contain the delimiter from being output    
+      * `-s` - It prevents lines that do not contain the delimiter from being output    
  
 
 ### - sort
@@ -301,7 +301,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 ---------------
 ## - xargs
 
-  * xargs <command> expects a list of strings on standard input, and it then invokes command with those strings as arguments  
+  * `xargs <command>` expects a list of strings on standard input, and it then invokes command with those strings as arguments  
   * Peculiarities of behavior:  
       * xargs groups the invocations in order to reduce the load. This can work with commands like ls, but not if the command accepts a single parameter  
       * xargs passes the input lines as they are on the command line built. The presence of spacers will therefore make the command perceive invoked a multiplicity of parameters
@@ -321,7 +321,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
   * Is a useful command for duplicating an output stream  
     * Send a copy of stdin to stdout  
     * Sends an identical copy in a file passed as a parameter  
-    * -a    - The file is opened in append  
+    * `-a`    - The file is opened in append  
   * Ex: `command1 | tee FILE | command2`  
 
 ---------------
