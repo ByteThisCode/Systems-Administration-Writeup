@@ -26,11 +26,12 @@
 6. [Process Substitution](#--process-substitution)
 7. [Command Substitution](#--command-substitution)
 8. [Multiple Files Tools](#--multiple-files-tools)
-    * [diff](#--diff)  
-    * [paste](#--paste)
-    * [join](#--join)
-9. [Quoting](#--quoting)
-10. [Pathname Expansion](#--pathname-expansion)
+    * [diff](#--diff)   
+    * [paste](#--paste)  
+    * [join](#--join)  
+9. [Quoting](#--quoting)  
+10. [Pathname Expansion](#--pathname-expansion)  
+11. [Brace Expansion](#--brace-expansion)  
 
 ---------------
 ## - Useful Commands
@@ -441,3 +442,11 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      * It can be denied with `!` o `^`, ex: `[!a]` `[^A-Z]`  
      * It can be a class like egrep, ex: `[[:alnum:]]`  
      * To include `-` or `]` in the SET, put them as the first character  
+
+---------------
+## - Brace Expansion  
+
+ * Unlike pathname expansion, strings are generated independently regardless of whether or not there are files that match the pattern
+ * Syntax: `[PRE]{LIST/SEQUENCE}[POST]`
+ * List example: `a{d,c,b}e`  -  
+ * 
