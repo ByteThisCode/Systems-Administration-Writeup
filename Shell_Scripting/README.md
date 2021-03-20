@@ -38,7 +38,8 @@
     * [Notable Variables](#--notable-variables)  
     * [Positional Variables](#--positional-variables) 
     * [Indirect Access](#--indirect-access)  
-14. [Array](#--array)
+14. [Array](#--array)  
+15. [Builtin Read](#--builtin-read)
 
 ---------------
 ## - Useful Commands
@@ -504,8 +505,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      | name/pattern/string | Replace first occurrence |
      | name//pattern/string | Replace all occurrence |
    
-   ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `DO NOT WORKS`
-   Ex: Changing the .bad extension of a file to .good - `mv "${FN}" "${FN/.bad/.good}`
+   Ex: Changing the .bad extension of a file to .good - `mv "${filename}" "${filename/.bad/.good}`
 
 ---------------
 ## - Variables  
@@ -613,7 +613,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      bash$ echo ${#A[*]}
       2
      ```
- * **Array associativi** (bash 4 and next)
+ * **Associative Arrays** (bash 4 and next)
    * In associative arrays, the index can be a string, not just a number: they are key-value maps (note `-A` as option):
      ```
      bash$ declare -A ASAR
@@ -625,13 +625,54 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       firstvalue
      ```
      
+---------------
+## - Builtin Read
+
+ * Reads strings from stdin and assigns them to variables  
+   *  The input is tokenized using IFS (any spacer by default)  
+   *  If there are more tokens than variables, those in excess all end up in the last specified variable, as a single string, including separators  
+     ```
+     bash$ read A B C  
+     today I brought a sandwich for lunch  
+     bash$ echo $A / $B / $C  
+      today / I / brought a sandwich for lunch  
+     ```
+ * Read separates using IFS:  
+      ```
+      bash$ IFS=:  
+      bash$ read A B C  
+      today:I brought:a sandwich:for lunch  
+      bash$ echo $A / $B / $C  
+       today / I brought / a sandwich:for lunch  
+      ```
+  * Options:  
+      ```
+      -p PROMPT      - Print PROMPT before accepting input  
+      -u FD          - Reads from FD instead of stdin  
+      -a ARRAY       - Assigns tokens to elements of ARRAY  
+      ```
+  * Example:  
+      ```
+      bash$ read -p "Tell me three colors: " -a COL  
+      Tell me three colors: red green blue            (Output: "Tell me three colors:", User Input: red green blue)  
+      bash$ echo ${COL[1]}  
+         green  
+      ```
      
-     
-     
-     
-     
-     
-     
+   * Processes memento  
+       ```
+       bash$ echo hello | read A  
+       bash$ echo $A  
+         (nothing)  
+       ```
+     * Manipulate variables in child processes without losing the results before they can be used  
+       * Solution: Subshell  `echo hello | ( read A ; echo $A )`  
+     * Need to use to acquire read data interactively by the user in a child process that has stdin supplied by a pipe instead of from the terminal  
+       * Solution: create a file descriptor for the terminal:
+           ```
+           bash$ exec 3<$(tty)
+           bash$ echo hello | ( read -u 3 A ; echo $A )
+           ```
      
      
      
