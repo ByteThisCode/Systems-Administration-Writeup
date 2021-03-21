@@ -39,7 +39,7 @@ Configure sudo (add user username to sudoers) two ways:
    * Add the line `username <tab> ALL=(ALL:ALL) <space> ALL`
    * Type `adduser username sudo`
  * B:
-   * adduser username sudo
+   * `adduser username sudo`
  * To save changes logout and re-login
 
 `su - root`  
