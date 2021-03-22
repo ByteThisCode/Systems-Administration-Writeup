@@ -322,7 +322,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
   * Options:  
       ```
       -0 (zero)      - Uses null, not space, as the argument terminator  
-      -L MAX         - Use at most MAX input lines for each invocation  
+      -n MAX         - Use at most MAX input lines for each invocation  
       -p             - It asks interactively for confirmation of the launch of each command (useful to keep strings together)  
       ```
   * Ex: `pipeline | which produces | filenames | xargs ls -l` - Will run ls -l for each file received from the pipeline  
