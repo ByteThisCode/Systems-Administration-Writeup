@@ -855,7 +855,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    ```
    
 ### - for
-   ```
+   ```shell
    for VARIABLE in 1 2 3 4 5 .. N
    do
       command1
@@ -863,7 +863,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       commandN
    done
    ```
-   ```
+   ```shell
    for VARIABLE in file1 file2 file3
    do
       command1 on $VARIABLE
@@ -871,7 +871,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       commandN
    done
    ```
-   ```
+   ```shell
    for OUTPUT in $(Linux-Or-Unix-Command-Here)
    do
       command1 on $OUTPUT
@@ -880,13 +880,13 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    done
    ```
  * `for NAME [in WORDS ...]; do COMMANDS; done`
- * WORDS = pathname expansion pattern:
+ * WORDS = pathname expansion pattern:  
    `. for F in /tmp/*.bak ; do rm -f "$F" ; done`
- * WORDS = command line parameters:
+ * WORDS = command line parameters:  
    `. for PAR in “$@” ; do echo "$PAR" ; done` 
- * WORDS = command substitution
+ * WORDS = command substitution:  
    `for USER in $(cat /etc/passwd | cut -f1 -d:) …`
- * WORDS = brace expansion:
+ * WORDS = brace expansion:  
     `for ITEM in item_{a..z}`
 
 ### - while
