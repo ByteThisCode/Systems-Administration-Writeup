@@ -41,6 +41,10 @@
 14. [Array](#--array)  
 15. [Builtin Read](#--builtin-read)
 16. [Arithmetic Evaluation-Expansion](#--arithmetic-evaluation-expansion)
+17. [Flow Control](#--flow-control)
+    * [Command Sequences](#--command-sequences)
+    * [Functions](#--functions)
+    * [Condition Assessment](#--condition-assessment)
 
 ---------------
 ## - Other Examples
@@ -49,8 +53,9 @@
 ---------------
 ## - Useful Commands
 
-* `2>/dev/null` - Discard errors 
-* `unset VAR` To remove an environment variable/array  
+* `2>/dev/null`      - Discard errors 
+* `unset VAR`        - To remove an environment variable/array  
+* `$'\x0a'`          - HEX value for '\n'
 
 ---------------
 ## - Redirection
@@ -687,20 +692,86 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 ---------------
 ## - Arithmetic Evaluation-Expansion
 
- * 
-     
+ * Contexts in which arithmetic evaluation takes place:  
+   * To the assignment of values on **declared integer** variables:
+       ```
+       bash$ declare -i N
+       bash$ N="3 * (2 + 5)"
+       bash$ echo $N
+         21
+       ```
+   * Using the let builtin or the equivalent compound command (()):
+       ```
+       bash$ let N++
+       bash$ echo $N
+         22
+       ```
 
+ * (( ))
+ 
+   * Protects the elements of the expression as " "  
+   * The $(( )) token is expanded with the result of the expression
+   * Example:
+       ```
+       bash$ counter=0
+       bash$ declare -p counter                                               -  -p    Show the type and value of the symbol
+         declare -- counter="0"                                               -  "--"  Stands for no type
+       bash$ echo $(( counter++ )) $(( counter++ )) $(( counter++ ))
+         0 1 2
+       bash$ counter=$(( counter * newvar + 100 ))
+       bash$ echo $counter
+         100
+       ```
+       
+ * Operators:
+     ```
+     id++ id-- ++id --id                      Post/pre-increase/decrease  
+     + - * /                                  Sum subtraction product division  
+     ** %                                     Exponentiation, modulo  
+     ! ~ & | ^                                NOT NOT AND OR XOR bit-a-bit  
+     << >>                                    Left / right binary shift   
+     = *= /= %= += -= <<= >>= &= ^= |=        Assignment  
+     <= >= < > == !=                          Comparison  
+     && ||                                    Logic AND / OR   
+     expr1?expr2:expr3                        Returns the result of expr2 or expr3 respectively if expr1 is true or false  
+     ```
+ * Numbers can be expressed in any base between 2 and 64
+   * Default 10, octal 0 prefix, hexadecimal 0x prefix
+   * Prefix B# -> base B
      
+---------------
+## - Flow Control
+
+
+### - Command Sequences 
+
+ * To keep running in the main shell memory space, use { } 
+ * Esample: 
+     ```
+     bash$ { read A ; read B ; } <<< e$'\x0a'f
+     bash$ echo $A . $B
+      e . f
+     ```
      
+### - Functions     
+
+ * Functions are sequences of commands with a name: `function NAME() { SEQUENCE ; }
+ * They can receive parameters: `$1 $2` - `$0` remains set to the script name
+ * The name of the function is placed in `$FUNCNAME`
+ * If invoked "simply", they are performed in the context of the caller:
+   * Same memory space
+   * "global" variables
+   * Possibility to declare local variables with `local`
+ * Attention to invocations in the pipeline (the function will be executed by the automatically created child bash)
+
+### - Condition Assessment
+
+ * The bash flow control commands do not process logical expressions, but decide the path based on the exit code of a process 
+   (0 == true, other values == false)
+ * The exit code of a process is found in the special variable `$?` set by the shell at the end of the process 
+ * There are several builtins and commands: `test`, `[ ]`, `[[ ]]`  
      
-     
-     
-     
-     
-     
-     
-     
-     
-     
+### - test / [ ]
+
      
      
