@@ -48,6 +48,7 @@
     * [test / \[ \] ](#--test---)
     * [Builtin \[\[ \]\]](#--builtin---)
     * [if](#--if)
+    * [case](#--case)
 
 ---------------
 ## - Other Examples
@@ -824,12 +825,12 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       #commands executed if CMD1 returns true
    fi
    ```
-   ```
+   ```shell
    if CMD1; then
       #commands executed if CMD1 returns true
    fi
    ```
-   ```
+   ```shell
    if CMD1; then
       #commands executed if CMD1 returns true
    elif CMD2
@@ -838,4 +839,15 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       CMD3
    fi
    
+   ```
+
+ ### - case
+   ```shell
+   case "$variabile" in
+      name1) echo is name1 ;;
+      name?) echo is name2, namea, namez ;;
+      name*) echo is name11, name, namehello ;;
+      [1-9]name) echo is 1name, 2name, …, 9name ;;
+      *) echo not any of the precedents ;;
+   esac
    ```
