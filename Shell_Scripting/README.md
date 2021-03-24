@@ -49,6 +49,8 @@
     * [Builtin \[\[ \]\]](#--builtin---)
     * [if](#--if)
     * [case](#--case)
+    * [for](#--for)
+    * [while](#--while)
 
 ---------------
 ## - Other Examples
@@ -841,9 +843,9 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    
    ```
 
- ### - case
+### - case
    ```shell
-   case "$variabile" in
+   case "$variable" in
       name1) echo is name1 ;;
       name?) echo is name2, namea, namez ;;
       name*) echo is name11, name, namehello ;;
@@ -851,3 +853,40 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       *) echo not any of the precedents ;;
    esac
    ```
+   
+### - for
+   ```
+   for VARIABLE in 1 2 3 4 5 .. N
+   do
+      command1
+      command2
+      commandN
+   done
+   ```
+   ```
+   for VARIABLE in file1 file2 file3
+   do
+      command1 on $VARIABLE
+      command2
+      commandN
+   done
+   ```
+   ```
+   for OUTPUT in $(Linux-Or-Unix-Command-Here)
+   do
+      command1 on $OUTPUT
+      command2 on $OUTPUT
+      commandN
+   done
+   ```
+ * `for NAME [in WORDS ...]; do COMMANDS; done`
+ * WORDS = pathname expansion pattern:
+   `. for F in /tmp/*.bak ; do rm -f "$F" ; done`
+ * WORDS = command line parameters:
+   `. for PAR in “$@” ; do echo "$PAR" ; done` 
+ * WORDS = command substitution
+   `for USER in $(cat /etc/passwd | cut -f1 -d:) …`
+ * WORDS = brace expansion:
+    `for ITEM in item_{a..z}`
+
+### - while
