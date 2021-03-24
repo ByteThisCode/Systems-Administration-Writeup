@@ -906,6 +906,16 @@ Bash can disconnect predefined streams from the terminal and have the same file 
   * `while` - Iterates if CMD returns true
   * `until` - Iterates if CMD returns false
 
+  ```shell
+  x=1
+  while [ $x -le 5 ]
+  do
+    echo "Welcome $x times"
+    x=$(( $x + 1 ))
+  done
+  ```
+  
+
 ### - Cycle Termination
 
  * `break [N]`  
