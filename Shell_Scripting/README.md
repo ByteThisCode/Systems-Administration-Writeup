@@ -45,6 +45,7 @@
     * [Command Sequences](#--command-sequences)
     * [Functions](#--functions)
     * [Condition Assessment](#--condition-assessment)
+    * [test / \[ \] ](#--test---)
 
 ---------------
 ## - Other Examples
