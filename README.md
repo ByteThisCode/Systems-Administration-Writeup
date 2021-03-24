@@ -26,7 +26,7 @@
   \- [Variables](./Shell_Scripting/#--variables)  
   \- [Array](./Shell_Scripting/#--array)  
   \- [Builtin Read](./Shell_Scripting/#--builtin-read)  
-  \- [Arithmetic Evaluation-Expansion](./Shell_Scripting/#--erithmetic-evaluation-expansion) 
+  \- [Arithmetic Evaluation-Expansion](./Shell_Scripting/#--erithmetic-evaluation-expansion)   
   \- [Flow COntrol](./Shell_Scripting/#--flow-control)  
 
 ---------------
