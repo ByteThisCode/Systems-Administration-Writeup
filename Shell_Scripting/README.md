@@ -46,7 +46,8 @@
     * [Functions](#--functions)
     * [Condition Assessment](#--condition-assessment)
     * [test / \[ \] ](#--test---)
-    * [Builtin \[\[ \]\]](#--Builtin---)
+    * [Builtin \[\[ \]\]](#--builtin---)
+    * [if](#--if)
 
 ---------------
 ## - Other Examples
@@ -58,6 +59,9 @@
 * `2>/dev/null`      - Discard errors 
 * `unset VAR`        - To remove an environment variable/array  
 * `$'\x0a'`          - HEX value for '\n'
+* `&&` `||` `!`      - They can also be used on the command line to logically combine the exit codes of any process
+  * Example: `mkdir $MYDIR && cd $MYDIR`                 -  true if I can create $MYDIR and can access it    
+  * Example: `cd $MYDIR || echo "$MYDIR inaccessible"`   -  Only if cd fails is it necessary to execute the second command  
 
 ---------------
 ## - Redirection
@@ -805,4 +809,33 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      ```
 
  ### - Builtin [[ ]]    
-     
+ 
+  * Supports the same test functions / [ ] and also
+    * The binary operators `==` and! `!=` Match the left parameter with a pattern expressed by the right parameter with the same syntax of the pathname expansion
+        `[[ "hello" == h?l[b-s] ]]` -> true
+    * The binary operator `=~` matches the left parameter with a regular expression specified by the right parameter
+        `[[ "hello" =~ ^h.{2}p$ ]]` -> true
+ 
+ ### - if
+ 
+   ```shell
+   if CMD1
+   then
+      #commands executed if CMD1 returns true
+   fi
+   ```
+   ```
+   if CMD1; then
+      #commands executed if CMD1 returns true
+   fi
+   ```
+   ```
+   if CMD1; then
+      #commands executed if CMD1 returns true
+   elif CMD2
+      #commands executed if CMD2 returns true
+   else
+      CMD3
+   fi
+   
+   ```
