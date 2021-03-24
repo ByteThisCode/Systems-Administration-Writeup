@@ -51,6 +51,7 @@
     * [case](#--case)
     * [for](#--for)
     * [while](#--while)
+    * [Cycle Termination](#--cycle-termination)
 
 ---------------
 ## - Other Examples
@@ -888,5 +889,28 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    `for USER in $(cat /etc/passwd | cut -f1 -d:) …`
  * WORDS = brace expansion:  
     `for ITEM in item_{a..z}`
+    
+ * `for BACKWARDSTENTHS in $(seq 1 -0.1 0)`
+ * `for (( i=0, j=0 ; i+j < 10 ; i++, j+=2 ))`
 
 ### - while
+
+  ```shell
+  while CMD                - or until CMD
+  do
+   command1
+   command2
+   commandN
+  done
+  ```
+  * `while` - Iterates if CMD returns true
+  * `until` - Iterates if CMD returns false
+
+### - Cycle Termination
+
+ * `break [N]`  
+   * Exits a for, while, or until loop  
+   * If specified N, exits N nested loops
+ * `continue [N]`  
+   * Jumps to the next (possible) iteration of a for, while, or until loop
+   * If specified N, it restarts going up by N nested cycles
