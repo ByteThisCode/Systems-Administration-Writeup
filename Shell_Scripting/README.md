@@ -46,7 +46,7 @@
     * [Functions](#--functions)
     * [Condition Assessment](#--condition-assessment)
     * [test / \[ \] ](#--test---)
-    * [\[\[ \]\]](#--[[-]])
+    * [Builtin \[\[ \]\]](#--Builtin---)
 
 ---------------
 ## - Other Examples
@@ -804,5 +804,5 @@ Bash can disconnect predefined streams from the terminal and have the same file 
          -ot            -  odler than
      ```
 
- ### - [[ ]]    
+ ### - Builtin [[ ]]    
      
