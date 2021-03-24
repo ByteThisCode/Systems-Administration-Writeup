@@ -46,6 +46,7 @@
     * [Functions](#--functions)
     * [Condition Assessment](#--condition-assessment)
     * [test / \[ \] ](#--test---)
+    * [\[\[ \]\]](#--[[-]])
 
 ---------------
 ## - Other Examples
@@ -774,5 +775,34 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      
 ### - test / [ ]
 
+ * They are the same built-in 
+ * Followed by an expression, they evaluate it and return 0 or 1 consistently to the result (true or false)
+ * **Main unary tests** -  `test OP ARG`  
+     ```
+     > For strings:  
+         -z             -  true if empty string  
+         -n             -  true if not empty string  
+     > For files:  
+         -e             -  true if file exists  
+         -f             -  true if regular file  
+         -d             -  true if directory  
+         -s             -  true if not empty file  
      
+     (Others help test)
+     ```
+ 
+ * **Main unary tests** -  `test ARG1 OP ARG2`  
+     ```
+     > Lexical comparison between strings:  
+         =, !=, <, >  
+     > Numerical comparison between strings:  
+         -eq, -ne       -  equal, not equal  
+         -lt, -le       -  less than, less or equal  
+         -gt, -ge       -  greater than, greater or equal  
+     > File comparison:
+         -nt            -  newer than  
+         -ot            -  odler than
+     ```
+
+ ### - [[ ]]    
      
