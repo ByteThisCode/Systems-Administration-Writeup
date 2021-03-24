@@ -40,6 +40,7 @@
     * [Indirect Access](#--indirect-access)  
 14. [Array](#--array)  
 15. [Builtin Read](#--builtin-read)
+16. [Arithmetic Evaluation-Expansion](#--arithmetic-evaluation-expansion)
 
 ---------------
 ## - Other Examples
@@ -683,6 +684,10 @@ Bash can disconnect predefined streams from the terminal and have the same file 
            ```
      
      
+---------------
+## - Arithmetic Evaluation-Expansion
+
+ * 
      
 
      
