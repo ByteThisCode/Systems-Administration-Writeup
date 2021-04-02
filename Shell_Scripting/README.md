@@ -277,7 +277,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       ```
   
   * Examples:  
-      ```
+      ```shell
       (file : hi hi hi)  
       bash$ cat file | sed -e 's/hi/hello/'  
          hello hi hi  
@@ -372,7 +372,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
   *  `cmd_consumer <(cmd_producer_on_stdout)`  
   *  `cmd_producer_on_file >(cmd_consumer_from_stdin)`  
   *  Examples:  
-      ```
+      ```shell
       bash$ less <(ls -l)   
          /dev/fo/12  - The pipe itself  
          
@@ -417,7 +417,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
     * c : change  
     * d : delete  
   * Example:  
-      ```
+      ```shell
       file1:            file2:  
       row one           row one  
       row two           row three  
@@ -464,7 +464,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       \\       The first backslash protects the second -> on the line remains \  
       ```  
   * Interaction examples:  
-      ```
+      ```shell
       A=hello
       ls *\**           -  List filenames containing the * character in any position
       echo "$A"         -  Print the contents of variable A exactly (hello)
@@ -584,13 +584,13 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    "$#"        -  Expanded into "$1" "$2" "$3" ...
    ```
  * Positional variables can be set manually:  
-     ```  
+     ```shell
      bash$ set dog cat house  
      bash$ echo $2  
       cat  
      ```  
  * `shift`  -  Size down the list of positional variables (excluding $0), assigning $N the content of $N+1:  
-     ```  
+     ```shell
      bash$ echo $# $1 $2 $3 
       3 dog cat house  
      bash$ shift  
@@ -602,7 +602,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
  * Allows to obtain the name of a variable, which can then be used in any other expression, obtaining an indirect reference to  
  * Example:  
-     ```  
+     ```shell  
    bash$ KEY=RED  
    bash$ RED=VALUE  
    bash$ echo ${!KEY}  
@@ -617,35 +617,35 @@ Bash can disconnect predefined streams from the terminal and have the same file 
  * Direct initialization: `VECTOR=(value1 value2 value3)`  
  
  * Initialization with alternative separators: 
-     ```
+     ```shell
      bash$ STRING="Here.there.are"
      bash$ IFS='.' VECTOR=($STRING)
      bash$ echo ${VECTOR[1]}
       there
      ```
  * Indices can be non-consecutive:
-     ```
+     ```shell
      A[5]="an element"
      A[8]="another element"
      ```
  * To view all the elements of the array you can use the index * or @
-     ```
+     ```shell
      bash$ echo "${A[*]}"
       an element another element 
      ```
  * To know the set of indexes corresponding to actually assigned cells of the array, use `${!name[@]}` 
-     ```
+     ```shell
      bash$ echo ${!A[@]}
       5 8 
      ```
  * To know the number of assigned cells, use `${#name[*]}`
-     ```
+     ```shell
      bash$ echo ${#A[*]}
       2
      ```
  * **Associative Arrays** (bash 4 and next)
    * In associative arrays, the index can be a string, not just a number: they are key-value maps (note `-A` as option):
-     ```
+     ```shell
      bash$ declare -A ASAR
      bash$ ASAR[fistkey]=firstvalue
      bash$ echo ${ASAR[fistkey]}
@@ -661,14 +661,14 @@ Bash can disconnect predefined streams from the terminal and have the same file 
  * Reads strings from stdin and assigns them to variables  
    *  The input is tokenized using IFS (any spacer by default)  
    *  If there are more tokens than variables, those in excess all end up in the last specified variable, as a single string, including separators  
-     ```
+     ```shell
      bash$ read A B C  
      today I brought a sandwich for lunch  
      bash$ echo $A / $B / $C  
       today / I / brought a sandwich for lunch  
      ```
  * Read separates using IFS:  
-      ```
+      ```shell
       bash$ IFS=:  
       bash$ read A B C  
       today:I brought:a sandwich:for lunch  
@@ -682,7 +682,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       -a ARRAY       - Assigns tokens to elements of ARRAY  
       ```
   * Example:  
-      ```
+      ```shell
       bash$ read -p "Tell me three colors: " -a COL  
       Tell me three colors: red green blue            (Output: "Tell me three colors:", User Input: red green blue)  
       bash$ echo ${COL[1]}  
@@ -690,19 +690,19 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       ```
      
    * Processes memento  
-       ```
+       ```shell
        bash$ echo hello | read A  
        bash$ echo $A  
          (nothing)  
        ```
      * Manipulate variables in child processes without losing the results before they can be used  
        * Solution: Subshell  
-           ```
+           ```shell
            echo hello | ( read A ; echo $A )
            ```  
      * Need to use to acquire read data interactively by the user in a child process that has stdin supplied by a pipe instead of from the terminal  
        * Solution: create a file descriptor for the terminal:
-           ```
+           ```shell
            bash$ exec 3<$(tty)
            bash$ echo hello | ( read -u 3 A ; echo $A )
            ```
@@ -713,14 +713,14 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
  * Contexts in which arithmetic evaluation takes place:  
    * To the assignment of values on **declared integer** variables:
-       ```
+       ```shell
        bash$ declare -i N
        bash$ N="3 * (2 + 5)"
        bash$ echo $N
          21
        ```
    * Using the let builtin or the equivalent compound command (()):
-       ```
+       ```shell
        bash$ let N++
        bash$ echo $N
          22
@@ -731,7 +731,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    * Protects the elements of the expression as " "  
    * The $(( )) token is expanded with the result of the expression
    * Example:
-       ```
+       ```shell
        bash$ counter=0
        bash$ declare -p counter                                               -  -p    Show the type and value of the symbol
          declare -- counter="0"                                               -  "--"  Stands for no type
@@ -766,7 +766,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
  * To keep running in the main shell memory space, use { } 
  * Esample: 
-     ```
+     ```shell
      bash$ { read A ; read B ; } <<< e$'\x0a'f
      bash$ echo $A . $B
       e . f
@@ -979,7 +979,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
  * It is obtained by posting the character `&` to the command line.
  * The shell responds by communicating a number in square brackets (job id) that identifies the job locally to this shell.
  * The process PID is stored in the variable `$!`
-   ```
+   ```shell
    bash$ command &
       [1] 1431
    bash$ echo $!
@@ -988,7 +988,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
  * If you run a command line without &, and want to fix it, you can give a STOP signal with Ctrl+Z
    * You receive a job id
    * With the command `bg %job_id`, a CONT signal is sent which restarts the process and at the same time puts it in the background
-   ```
+   ```shell
    bash$ command
    ^Z
       [1]+  Stopped
@@ -1029,7 +1029,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
  * NOTES: 
    * **nice** and **nohup** are external commands and used when starting a process, even together
-     ```
+     ```shell
      nice nohup long_calculation &
      ```
    * **disown** is a builtin that acts on the PID/job_id of previously launched processes
@@ -1047,7 +1047,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 ### - eval
 
  * Allows you to process a file as if it is a script:
-   ```
+   ```shell
    bash$ listpage="ls | more"
    bash$ $listpage
     ls: cannot access |: No such file or directory
