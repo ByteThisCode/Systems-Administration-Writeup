@@ -51,7 +51,8 @@
     * [case](#--case)
     * [for](#--for)
     * [while](#--while)
-    * [Cycle Termination](#--cycle-termination)
+    * [Cycle Termination](#--cycle-termination)  
+18. [Processes](#--processes)
 
 ---------------
 ## - Other Examples
@@ -923,4 +924,53 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    * If specified N, exits N nested loops
  * `continue [N]`  
    * Jumps to the next (possible) iteration of a for, while, or until loop
-   * If specified N, it restarts going up by N nested cycles
+   * If specified N, it restarts going up by N nested cycles  
+
+
+---------------
+## - Processes
+
+ * PID (Process ID) and do actions on behalf of the user who launched it
+
+### - trap
+
+ * Allows you to define a custom action to be performed when a signal is received  
+ * `trap [-lp] [[code to run] signal ...]`
+ * NOTE: 
+   * **Signal handlers are not inherited by child processes**
+   * **Rnning a handler does not block signals of the same type**
+   * **Whhen bash executes a command, the bash process is not scheduled until the child terminates the signals are not checked**
+
+### - kill  
+
+ * `kill [options] <pid> […]`
+   * Negative PIDs identify the entire process group
+   * The `-l` / `-L` option lists the supported signals
+ * The terminal transforms the reception of some key combinations into signals sent to the process that is occupying it:
+     ```
+     CTRL+Z       -  SIGTSTP
+     CTRL+C       -  SIGINT
+     CTRL+\       -  SIGQUIT
+     ```
+
+### - sleep
+
+ * Triggers a timer to make the process "sleep"
+ * The parameter can be a float
+   * By default interpreted in seconds
+   * Suffixes m(inutes) h(ours) d(ays) are supported
+ * NOTE:
+   * Spawns a child process
+   * **Sending a signal to the shell that launched it does not touch it**
+   * Sleep invokes a system call which suspends the process:
+     * Until the end of sleep the process does not return to user mode
+     * **The signals are received but not processed**
+
+
+
+
+
+
+
+
+
