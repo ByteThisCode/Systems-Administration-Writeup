@@ -1115,3 +1115,56 @@ Bash can disconnect predefined streams from the terminal and have the same file 
        bash$ date +"%A %e %B"
          #Friday  2 April
        ```
+### - Temp File
+
+ * `mktemp` - Returns the name of the created file
+   * By default in the format /tmp/tmp.XXXXXXXXXX
+   ```
+   -d          - Create a folder
+   -p DIR      - Create inside DIR instead of in /tmp
+   ```
+   ```shell
+   bash$ D=$(mktemp -d)
+   bash$ F=$(mktemp)
+   bash$ exec >"$D/$F"
+   ```
+   
+### - Filename Manipulation
+
+ * `basename` - Removes the path and possibly a suffix from a file name
+   ```shell
+   bash$ basename -s .h include/stdio.h
+      #stdio
+   ```
+ * `dirname` - Removes the last component of the path from a file name
+   * If the name does not contain "/", returns "." (the current directory)
+   ```shell
+   bash$ dirname /usr/bin
+      #/usr
+   bash$ dirname data.txt
+      #.
+   ```
+   
+### - printf
+
+ * Allows you to format arguments in a more complex way than echo
+ * `printf [-v var] format [arguments]`
+   * `-v var` - Assigns the formatting result to the variable instead of producing it on STDOUT
+   * `-format` - Is a format string documented by printf(1)
+   * `arguments` - Are the arguments to apply the format string to
+
+### - script
+
+ * Make a copy of everything that appears on the terminal (commands, output, temporal markers with -t)
+ * Produces a **typescript** file
+ * Terminate with CTRL-D or exit
+ * The produced file can be used as documentation or given as an argument to scriptreplay(1)
+
+### - watch
+
+ * Executes a command periodically showing the output on the terminal
+ ```
+ -d                  -  Highlights the differences that have appeared since the last update
+ -n <interval>       -  Sets the wait between one execution and the next (minimum 0.1 seconds, default 2 seconds)
+ -p                  -  Interprets the value passed with -n as the update period
+ ```
