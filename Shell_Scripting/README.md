@@ -53,6 +53,14 @@
     * [while](#--while)
     * [Cycle Termination](#--cycle-termination)  
 18. [Processes](#--processes)
+    * [trao](#--trap)
+    * [kill](#--kill)
+    * [sleep](#--sleep)
+    * [Background Processes](#--background-processes)
+    * [wait](#--wait)
+    * [josb and foreground](#--jobs-and-foreground)
+    * [Modifiers](#--modifiers)
+19. [Other Useful Commands](#--other-userful-commands)
 
 ---------------
 ## - Other Examples
@@ -936,7 +944,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 
  * Allows you to define a custom action to be performed when a signal is received  
  * `trap [-lp] [[code to run] signal ...]`
- * NOTE: 
+ * NOTES: 
    * **Signal handlers are not inherited by child processes**
    * **Rnning a handler does not block signals of the same type**
    * **Whhen bash executes a command, the bash process is not scheduled until the child terminates the signals are not checked**
@@ -959,18 +967,76 @@ Bash can disconnect predefined streams from the terminal and have the same file 
  * The parameter can be a float
    * By default interpreted in seconds
    * Suffixes m(inutes) h(ours) d(ays) are supported
- * NOTE:
+ * NOTES:
    * Spawns a child process
    * **Sending a signal to the shell that launched it does not touch it**
    * Sleep invokes a system call which suspends the process:
      * Until the end of sleep the process does not return to user mode
      * **The signals are received but not processed**
 
+### - Bacground Processes
+
+ * It is obtained by posting the character `&` to the command line.
+ * The shell responds by communicating a number in square brackets (job id) that identifies the job locally to this shell.
+ * The process PID is stored in the variable `$!`
+   ```
+   bash$ command &
+      [1] 1431
+   bash$ echo $!
+      1431
+   ```
+ * If you run a command line without &, and want to fix it, you can give a STOP signal with Ctrl+Z
+   * You receive a job id
+   * With the command `bg %job_id`, a CONT signal is sent which restarts the process and at the same time puts it in the background
+   ```
+   bash$ command
+   ^Z
+      [1]+  Stopped
+   bash% bg 1
+      [1]+ command & 
+   ```
+   
+### - wait
+
+ * Allows you to block execution until the background jobs are completed
+   * By default it waits for all jobs to complete
+   * Specific job_id arguments can be passed 
+ * If during the wait the shell receives a signal for which a handler with trap is defined:
+   *  wait exits immediately with exit code > 128
+   *  The handler is executed
+   * The execution continues after the wait
+     * `$?` wait exit code
+
+### - jobs and foreground
+
+ * A background process no longer receives commands from the terminal
+   * However it continues to use the terminal for STDOUT and STDERR
+ * `fg %job_id`   - To bring back to foreground a process by reconnecting it to the terminal
+ * `jobs`         - Shows the current job list, with theri state (Running or Stopped)
 
 
+### - Modifiers
+
+ * `nohup <command>` - Prevents the shell ,upon closing, from sending the SIGHUP signal to the <command> (which would normally cause it to terminate)
+   * It also disconnects the process output from the terminal if not explicitly done in the invocation
+   * By default, nohup directs the output to the file 'nohup.out'
+ * `nice <command>` - Run <command> with a non-zero niceness, changing the priority of the process
+   * By default 10
+   * Negative values only used by root
+ * `disown` - Completely removes a job from the shell job table
+   * By default the one launched last
+   * With `-h` option it also implements immunity to hangup
+
+ * NOTES: 
+   * **nice** and **nohup** are external commands and used when starting a process, even together
+     ```
+     nice nohup long_calculation &
+     ```
+   * **disown** is a builtin that acts on the PID/job_id of previously launched processes
 
 
-
+---------------
+## - Other Useful Commands
 
 
 
