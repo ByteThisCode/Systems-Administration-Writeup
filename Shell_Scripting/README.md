@@ -280,9 +280,9 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       ```shell
       (file : hi hi hi)  
       bash$ cat file | sed -e 's/hi/hello/'  
-         hello hi hi  
+         #hello hi hi  
       bash$ cat file | sed -e 's/hi/hello/g'  
-         hello hello hello  
+         #hello hello hello  
       ```
       
     
@@ -374,27 +374,27 @@ Bash can disconnect predefined streams from the terminal and have the same file 
   *  Examples:  
       ```shell
       bash$ less <(ls -l)   
-         /dev/fo/12  - The pipe itself  
+         #/dev/fo/12  - The pipe itself  
          
       bash$ cat <(date)  
-         Thu Jul 21 12:40:53 EEST 2011  
+         #Thu Jul 21 12:40:53 EEST 2011  
       
       bash$ cat <(date) <(date) <(date)  
-         Thu Jul 21 12:44:45 EEST 2011  
-         Thu Jul 21 12:44:45 EEST 2011  
-         Thu Jul 21 12:44:45 EEST 2011  
+         #Thu Jul 21 12:44:45 EEST 2011  
+         #Thu Jul 21 12:44:45 EEST 2011  
+         #Thu Jul 21 12:44:45 EEST 2011  
      
       bash$ echo <(date) <(date) <(date)  
-         /proc/self/fd/11 /proc/self/fd/12 /proc/self/fd/13  
+         #/proc/self/fd/11 /proc/self/fd/12 /proc/self/fd/13  
 
       bash$ wc <(cat /usr/share/dict/linux.words)  
-       483523  483523 4992010 /dev/fd/63  
+         #483523  483523 4992010 /dev/fd/63  
 
       bash$ grep script /usr/share/dict/linux.words | wc  
-          262     262    3601  
+          #262     262    3601  
 
       bash$ wc <(grep script /usr/share/dict/linux.words)  
-          262     262    3601 /dev/fd/63  
+          #262     262    3601 /dev/fd/63  
       ```
 
 ---------------
@@ -472,10 +472,10 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       echo "'$A'"       -  Print 'hello'
       
       bash$ echo $(ls)
-         file1 file2
+         #file1 file2
       bash$ echo "$(ls)"
-         file1
-         file2
+         #file1
+         #file2
       ```
 ---------------
 ## - Pathname Expansion  
@@ -587,15 +587,15 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      ```shell
      bash$ set dog cat house  
      bash$ echo $2  
-      cat  
+      #cat  
      ```  
  * `shift`  -  Size down the list of positional variables (excluding $0), assigning $N the content of $N+1:  
      ```shell
      bash$ echo $# $1 $2 $3 
-      3 dog cat house  
+      #3 dog cat house  
      bash$ shift  
      bash$ echo $# $1 $2  
-      2 cat house  
+      #2 cat house  
      ```    
 
 ### - Indirect Access
@@ -606,7 +606,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    bash$ KEY=RED  
    bash$ RED=VALUE  
    bash$ echo ${!KEY}  
-      VALUE  
+      #VALUE  
      ```  
 ---------------
 ## - Array
@@ -621,7 +621,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      bash$ STRING="Here.there.are"
      bash$ IFS='.' VECTOR=($STRING)
      bash$ echo ${VECTOR[1]}
-      there
+      #there
      ```
  * Indices can be non-consecutive:
      ```shell
@@ -631,17 +631,17 @@ Bash can disconnect predefined streams from the terminal and have the same file 
  * To view all the elements of the array you can use the index * or @
      ```shell
      bash$ echo "${A[*]}"
-      an element another element 
+      #an element another element 
      ```
  * To know the set of indexes corresponding to actually assigned cells of the array, use `${!name[@]}` 
      ```shell
      bash$ echo ${!A[@]}
-      5 8 
+      #5 8 
      ```
  * To know the number of assigned cells, use `${#name[*]}`
      ```shell
      bash$ echo ${#A[*]}
-      2
+      #2
      ```
  * **Associative Arrays** (bash 4 and next)
    * In associative arrays, the index can be a string, not just a number: they are key-value maps (note `-A` as option):
@@ -649,10 +649,10 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      bash$ declare -A ASAR
      bash$ ASAR[fistkey]=firstvalue
      bash$ echo ${ASAR[fistkey]}
-      firstvalue
+      #firstvalue
      bash$ KEY=fistkey
      bash$ echo ${ASAR[$KEY]}
-      firstvalue
+      #firstvalue
      ```
      
 ---------------
@@ -665,7 +665,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      bash$ read A B C  
      today I brought a sandwich for lunch  
      bash$ echo $A / $B / $C  
-      today / I / brought a sandwich for lunch  
+      #today / I / brought a sandwich for lunch  
      ```
  * Read separates using IFS:  
       ```shell
@@ -673,7 +673,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       bash$ read A B C  
       today:I brought:a sandwich:for lunch  
       bash$ echo $A / $B / $C  
-       today / I brought / a sandwich:for lunch  
+       #today / I brought / a sandwich:for lunch  
       ```
   * Options:  
       ```
@@ -686,14 +686,14 @@ Bash can disconnect predefined streams from the terminal and have the same file 
       bash$ read -p "Tell me three colors: " -a COL  
       Tell me three colors: red green blue            (Output: "Tell me three colors:", User Input: red green blue)  
       bash$ echo ${COL[1]}  
-         green  
+         #green  
       ```
      
    * Processes memento  
        ```shell
        bash$ echo hello | read A  
        bash$ echo $A  
-         (nothing)  
+         #(nothing)  
        ```
      * Manipulate variables in child processes without losing the results before they can be used  
        * Solution: Subshell  
@@ -717,13 +717,13 @@ Bash can disconnect predefined streams from the terminal and have the same file 
        bash$ declare -i N
        bash$ N="3 * (2 + 5)"
        bash$ echo $N
-         21
+         #21
        ```
    * Using the let builtin or the equivalent compound command (()):
        ```shell
        bash$ let N++
        bash$ echo $N
-         22
+         #22
        ```
 
  * (( ))
@@ -734,12 +734,12 @@ Bash can disconnect predefined streams from the terminal and have the same file 
        ```shell
        bash$ counter=0
        bash$ declare -p counter                                               -  -p    Show the type and value of the symbol
-         declare -- counter="0"                                               -  "--"  Stands for no type
+         #declare -- counter="0"                                               -  "--"  Stands for no type
        bash$ echo $(( counter++ )) $(( counter++ )) $(( counter++ ))
-         0 1 2
+         #0 1 2
        bash$ counter=$(( counter * newvar + 100 ))
        bash$ echo $counter
-         100
+         #100
        ```
        
  * Operators:
@@ -769,7 +769,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
      ```shell
      bash$ { read A ; read B ; } <<< e$'\x0a'f
      bash$ echo $A . $B
-      e . f
+      #e . f
      ```
      
 ### - Functions     
@@ -981,9 +981,9 @@ Bash can disconnect predefined streams from the terminal and have the same file 
  * The process PID is stored in the variable `$!`
    ```shell
    bash$ command &
-      [1] 1431
+      #[1] 1431
    bash$ echo $!
-      1431
+      #1431
    ```
  * If you run a command line without &, and want to fix it, you can give a STOP signal with Ctrl+Z
    * You receive a job id
@@ -991,9 +991,9 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    ```shell
    bash$ command
    ^Z
-      [1]+  Stopped
+      #[1]+  Stopped
    bash% bg 1
-      [1]+ command & 
+      #[1]+ command & 
    ```
    
 ### - wait
@@ -1050,20 +1050,68 @@ Bash can disconnect predefined streams from the terminal and have the same file 
    ```shell
    bash$ listpage="ls | more"
    bash$ $listpage
-    ls: cannot access |: No such file or directory
-    ls: cannot access more: No such file or directory
+    #ls: cannot access |: No such file or directory
+    #ls: cannot access more: No such file or directory
    bash$ eval $listpage
-      ...output of commands...
+      #...output of commands...
    ```
  * One useful features, after re-evaluating the separators, is to bring up variables and force their expansion
  * Must pay attention to escaping metacharacters to inhibit their interpretation at the first expansion step and possibly enable them for the second:
    ```shell
-   bash$ A=ciao
+   bash$ A=hello
    bash$ eval "P=$A ; echo $P"
-      (nothing)
+      #(nothing)
    bash$ unset P
    bash$ eval "P=$A ; echo \$P"
-         ciao
+       #hello
    ```
 
+### - getopts
 
+ * `getops OPTSTRING NAME [arg]`
+   * OPTSTRING -  String defining the characters to be recognized as options. If a character is followed by: it means that a parameter is expected for that option
+   * NAME - Variable name in which to place the currently parsed parameter
+ * To build scripts that support the classic syntax `command options_preceded_by_the_hyphen args`
+ ```shell
+    while getopts 'ab:' OPTION ; do
+      case $OPTION in
+         a) aflag=1
+            ;;
+         b) bflag=1
+             bval="$OPTARG"
+            ;;
+         ?) printf "Usage: %s: [-a] [-b value] args\n" $(basename $0) >&2
+            exit 2
+            ;;
+      esac
+   done
+   shift $(($OPTIND – 1)) # getopts cycles over $*, doesn't shift it
+ ```
+
+### - su
+
+ * Not practical for scripting
+ * But accepts a command to execute: `su -c "COMMAND" - USER`
+ * `sudo COMMAND` - The option to use to execute commands as root
+   * Requires sudoers configuration (possibly with NOPASSWD) 
+
+### - Time Measure
+
+ * `time` - If placed before a command, it indicates its duration
+   ```shell
+   bash$ time ls -lR /etc/ >/dev/null 2>&1
+      #real 0m0,155s
+      #user 0m0,013s
+      #sys 0m0,047s
+   ```
+ * `date`
+   * -s to set the system clock 
+   * Output format:
+     * date +FORMAT - Allows you to select what and how to display
+     * FORMAT is a string in which special sequences marked with the % character are interpreted
+       ```shell
+       bash$ date +"%Y%m%d %H:%M:%S"
+         #20210402 12:25:21
+       bash$ date +"%A %e %B"
+         #Friday  2 April
+       ```
