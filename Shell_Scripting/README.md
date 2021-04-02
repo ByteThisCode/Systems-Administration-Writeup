@@ -1038,5 +1038,32 @@ Bash can disconnect predefined streams from the terminal and have the same file 
 ---------------
 ## - Other Useful Commands
 
+### - source
+
+ * Used to run a script in the context of another
+   * Suppose the common.sh script contains variable value assignments, function and alias definitions
+   * After running `source common.sh` the variables, functions and aliases will also be defined in the "calling" script
+
+### - eval
+
+ * Allows you to process a file as if it is a script:
+   ```
+   bash$ listpage="ls | more"
+   bash$ $listpage
+    ls: cannot access |: No such file or directory
+    ls: cannot access more: No such file or directory
+   bash$ eval $listpage
+      ...output of commands...
+   ```
+ * One useful features, after re-evaluating the separators, is to bring up variables and force their expansion
+ * Must pay attention to escaping metacharacters to inhibit their interpretation at the first expansion step and possibly enable them for the second:
+   ```shell
+   bash$ A=ciao
+   bash$ eval "P=$A ; echo $P"
+      (nothing)
+   bash$ unset P
+   bash$ eval "P=$A ; echo \$P"
+         ciao
+   ```
 
 
