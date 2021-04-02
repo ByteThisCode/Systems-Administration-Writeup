@@ -28,5 +28,7 @@
   \- [Builtin Read](./Shell_Scripting/#--builtin-read)  
   \- [Arithmetic Evaluation-Expansion](./Shell_Scripting/#--arithmetic-evaluation-expansion)   
   \- [Flow Control](./Shell_Scripting/#--flow-control)  
+  \- [Processes](./Shell_Scripting/#--processes)  
+  \- [Other Useful Commands](./Shell_Scripting/#--other-useful-commands)   
 
 ---------------
