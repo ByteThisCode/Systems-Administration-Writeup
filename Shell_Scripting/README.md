@@ -957,7 +957,7 @@ Bash can disconnect predefined streams from the terminal and have the same file 
  * NOTES: 
    * **Signal handlers are not inherited by child processes**
    * **Rnning a handler does not block signals of the same type**
-   * **Whhen bash executes a command, the bash process is not scheduled until the child terminates the signals are not checked**
+   * **When bash executes a command, the bash process is not scheduled until the child terminates the signals are not checked**
 
 ### - kill  
 
